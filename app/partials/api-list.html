@@ -1,0 +1,5 @@
+<ul st-section="sidebar">
+    <li ng-repeat="api in apis | filter:query | orderBy:orderProp" >
+        <a href="#/apis/{{api.id}}">{{api.package}}</a>
+    </li>
+</ul>
