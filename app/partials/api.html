@@ -7,12 +7,8 @@
     </section>
     <section st-section="version">
         <div class="button dropdown" vertical-align="middle">
-            <select>
-                <option>v1</option>
-                <option>v1</option>
-                <option>v1</option>
-                <option>v1</option>
-                <option>v1</option>
+            <select ng-options="api in apis">
+                <option value="">{{api.package}}</option>
             </select>
         </div>
         <span class="inline-block-el" vertical-align="middle">/ API reference</span>
