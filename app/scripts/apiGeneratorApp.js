@@ -31,6 +31,7 @@ apiGeneratorApp.config(['$routeProvider', function($routeProvider) {
         controller: 'ApiDetailCtrl'
       })
       .otherwise({
+        templateUrl: 'partials/main.html',
         redirectTo: '/'
       });
 }]);
