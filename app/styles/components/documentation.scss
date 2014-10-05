@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+[st-section~="documentation"] {
+    padding: 1em;
+    font-weight: 300;
+    b , strong {
+        font-weight: 700;
+    }
+    h1, h2, h3 {
+        font-weight: 300;
+        color: #09f;
+        margin: 0;
+    }
+    h2 {
+        font-family: monospace;
+    }
+}
+
+[st-section~="subSection"] {
+    // margin-bottom: 1em;
+    border-bottom: 1px solid rgba(20,20,20,.3);
+    padding:0;
+    font-size: 1.8em;
+    h3 ~ p {
+        margin: .25em 0 .5em;
+        font-size: .5em;
+    }
+}
+[st-section~="apiInfo"] {
+    font-family: monospace;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    table {
+        td {
+            padding-left: 1em;
+            .title {
+                border-left: 5px solid #09f;
+                border-bottom: 2px solid #09f;
+                display: inline-block;
+                margin-left: -1em;
+                font-size: .8em;
+                padding-bottom: .5em;
+                padding-left: 1em;
+                margin-bottom: .5em;
+            }
+
+        }
+    }
+    dl {
+        font-size: .7em;
+        padding-left: 1em;
+        font-family: sans-serif;
+        margin: 0;
+        dl {
+            font-weight: bold;
+        }
+        dd {
+            font-size: .8em;
+            color: #666;
+        }
+    }
+}
+[st-section~="apiName"] {
+    padding-top: 1em;
+    h3 {
+        font-family: monospace;
+    }
+    p {
+        font-size: .8em;
+        color:#666;
+    }
+}
+
+@media screen and (min-width: 680px) {
+    [st-section~="apiName"] {
+        width: 30%;
+        float: left;
+    }
+    [st-section~="apiInfo"] {
+        width: 70%;
+        float: left;
+        border-left : 1px solid #ddd;
+        padding-left: 1em;
+    }
+}
+
+

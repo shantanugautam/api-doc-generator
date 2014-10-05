@@ -57,3 +57,10 @@ html , body {
 %small4 {
   font-size: 0.6rem;
 }
+
+
+[st-typerole~="subInfo"] {
+    color: #666;
+    margin: 0 0 1em;
+    font-size: .9em;
+}

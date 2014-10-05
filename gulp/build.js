@@ -6,10 +6,15 @@ var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license']
 });
 
+function handleError(err) {
+  console.error(err.toString());
+  this.emit('end');
+}
+
 gulp.task('styles', function () {
   return gulp.src('app/styles/*.scss')
-    .pipe($.plumber())
     .pipe($.sass({style: 'expanded'}))
+    .on('error', handleError)
     .pipe($.autoprefixer('last 1 version'))
     .pipe(gulp.dest('.tmp/styles'))
     .pipe($.size());
@@ -30,7 +35,7 @@ gulp.task('partials', function () {
       quotes: true
     }))
     .pipe($.ngHtml2js({
-      moduleName: 'apiDoc',
+      moduleName: 'apiGeneratorApp',
       prefix: 'partials/'
     }))
     .pipe(gulp.dest('.tmp/partials'))
@@ -40,6 +45,7 @@ gulp.task('partials', function () {
 gulp.task('html', ['styles', 'scripts', 'partials'], function () {
   var jsFilter = $.filter('**/*.js');
   var cssFilter = $.filter('**/*.css');
+  var assets;
 
   return gulp.src('app/*.html')
     .pipe($.inject(gulp.src('.tmp/partials/**/*.js'), {
@@ -48,17 +54,16 @@ gulp.task('html', ['styles', 'scripts', 'partials'], function () {
       addRootSlash: false,
       addPrefix: '../'
     }))
-    .pipe($.useref.assets())
+    .pipe(assets = $.useref.assets())
     .pipe($.rev())
     .pipe(jsFilter)
     .pipe($.ngAnnotate())
     .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
-    .pipe($.replace('bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap','fonts'))
     .pipe($.csso())
     .pipe(cssFilter.restore())
-    .pipe($.useref.restore())
+    .pipe(assets.restore())
     .pipe($.useref())
     .pipe($.revReplace())
     .pipe(gulp.dest('dist'))

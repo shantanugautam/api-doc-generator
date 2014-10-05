@@ -1,0 +1,49 @@
+<section>
+    <section st-section="banner">
+        <h1>{{Apiname}} Documentation</h1>
+        <form>
+            <input type="search" placeholder="Search documentation">
+        </form>
+    </section>
+    <section st-section="version">
+        <span class="inline-block-el" vertical-align="middle">API reference / </span>
+        <div class="button dropdown" vertical-align="middle">
+            <select ng-options="api in apis">
+                <option value="">{{api.package}}</option>
+            </select>
+        </div>
+    </section>
+    <section st-section="documentation">
+        <section st-section="content">
+          <md>
+            <h2>{{api.name}}<small>{{api.package}}{{api.version}}</small></h2>
+            <p st-typerole="subInfo">{{api.description}}</p>
+            <div st-section="subSection" data-ng-repeat="method in api.methods">
+                <div st-section="apiName">
+                    <h3>{{method.name}}</h3>
+                    <p>{{method.description}}</p>
+                </div>
+                <div st-section="apiInfo">
+                    <table>
+                        <tr ng-repeat="(key, value) in getParam">
+                          <td colspan="2">
+                            <span class="title">{{key}}</span> <br/>
+                            <dl>
+                                <dl>Type</dl>
+                                <dd>{{value.type}} </dd>
+
+                            </dl>
+                            <dl>
+                                <dl>Description</dl>
+                                <dd> {{value.description}} </dd>
+                            </dl>
+                          </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+          </md>
+
+        </section>
+    </section>
+</section>
