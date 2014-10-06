@@ -1,15 +1,15 @@
 <section>
     <section st-section="banner">
         <h1>{{Apiname}} Documentation</h1>
-        <form>
+<!--         <form>
             <input type="search" placeholder="Search documentation">
-        </form>
+        </form> -->
     </section>
     <section st-section="version">
-        <span class="inline-block-el" vertical-align="middle">API reference / </span>
+        <span class="inline-block-el" vertical-align="middle">API reference /{{api.version}}/ </span>
         <div class="button dropdown" vertical-align="middle">
-            <select ng-options="api in apis">
-                <option value="">{{api.package}}</option>
+            <select name="routeChanger" id="routeChanger" ng-model="route.selectedRoute" ng-change="go(route.selectedRoute)">
+                <option  ng-repeat="api in apis | orderBy:orderProp"  value="/apis/{{api.href}}">{{api.name}}</option>
             </select>
         </div>
     </section>
@@ -17,26 +17,61 @@
         <aside ng-include="'partials/search.html'" scope="" onload=""></aside>
         <section st-section="content">
           <md>
-            <h2>{{api.name}}<small>{{api.package}}{{api.version}}</small></h2>
+            <h2>{{api.name}}</h2>
             <p st-typerole="subInfo">{{api.description}}</p>
-            <div st-section="subSection" data-ng-repeat="method in api.methods">
+            <div st-section="subSection" data-ng-repeat="method in getParams">
                 <div st-section="apiName">
                     <h3>{{method.name}}</h3>
-                    <p>{{method.description}}</p>
                 </div>
                 <div st-section="apiInfo">
-                    <table>
-                        <tr ng-repeat="(key, value) in getParam">
-                          <td colspan="2">
-                            <span class="title">{{key}}</span> <br/>
+                    <dl>
+                        <dt>Description</dt>
+                        <dd>{{method.description}}</dd>
+                    </dl>
+                    <table ng-if="method.response">
+                        <tr>
+                            <th>Response</th>
+                        </tr>
+                        <tr >
+                          <td>
+                            <table>
+                                <tr>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Type
+                                    </th>
+                                    <th>
+                                        Description
+                                    </th>
+                                </tr>
+                                <tr data-ng-repeat="(key, value) in method.response">
+                                    <td>
+                                        {{value.name}}
+                                    </td>
+                                    <td>
+                                        {{value.type}}
+                                    </td>
+                                    <td class="descTxt">
+                                        {{value.description}}
+                                    </td>
+                                </tr>
+                            </table>
+                          </td>
+                        </tr>
+                    </table>
+                    <table ng-if="method.requests">
+                        <th>
+                            <td>
+                                Request
+                            </td>
+                        </th>
+                        <tr data-ng-repeat="(key, value) in method.requests">
+                          <td>
                             <dl>
-                                <dl>Type</dl>
-                                <dd>{{value.type}} </dd>
-
-                            </dl>
-                            <dl>
-                                <dl>Description</dl>
-                                <dd> {{value.description}} </dd>
+                                <dl>{{key}}</dl>
+                                <dd>{{value}} </dd>
                             </dl>
                           </td>
                         </tr>
@@ -44,7 +79,6 @@
                 </div>
             </div>
           </md>
-
         </section>
     </section>
 </section>
