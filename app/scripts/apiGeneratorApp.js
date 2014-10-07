@@ -21,7 +21,6 @@ var apiGeneratorApp = angular.module('apiGeneratorApp',[
 ]);
 
 apiGeneratorApp.config(['$routeProvider', function($routeProvider) {
-    console.log($routeProvider);
     $routeProvider
       .when('/apis', {
         templateUrl: 'partials/api-list.html',
