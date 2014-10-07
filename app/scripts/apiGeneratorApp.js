@@ -21,12 +21,13 @@ var apiGeneratorApp = angular.module('apiGeneratorApp',[
 ]);
 
 apiGeneratorApp.config(['$routeProvider', function($routeProvider) {
+    console.log($routeProvider);
     $routeProvider
       .when('/apis', {
         templateUrl: 'partials/api-list.html',
         controller: 'ApiListCtrl'
       })
-      .when('/apis/:apiHref', {
+      .when('/apis/:apiHref.json', {
         templateUrl: 'partials/api-detail.html',
         controller: 'ApiDetailCtrl'
       })
