@@ -26,7 +26,7 @@ apiGeneratorApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'partials/api-list.html',
         controller: 'ApiListCtrl'
       })
-      .when('/apis/:apiHref', {
+      .when('/apis/:apiHref.json', {
         templateUrl: 'partials/api-detail.html',
         controller: 'ApiDetailCtrl'
       })
