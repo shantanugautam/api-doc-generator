@@ -1,0 +1,24 @@
+{
+  "name": "406",
+  "package": [
+    "v1/errors"
+  ],
+  "version": [
+    "1.0.0"
+  ],
+  "description": "Errorr 406 Messages",
+  "contents": [
+    {
+      "name": "request_header_accept_invalid",
+      "description": "Invalid content type"
+    },
+    {
+      "name": "request_header_accept_encoding_invalid",
+      "description": "Invalid content encoding"
+    },
+    {
+      "name": "request_header_array_invalid",
+      "description": "Invalid header value. Array value is not supported"
+    }
+  ]
+}

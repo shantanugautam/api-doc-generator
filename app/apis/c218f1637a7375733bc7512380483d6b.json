@@ -11,75 +11,75 @@
     {
       "name": "get",
       "response": {
-        "hash_id": {
-          "name": "hash_id",
+        "id": {
+          "name": "id",
           "type": "string",
-          "description": "User's id"
+          "description": "Account unique identifier"
         },
         "email": {
           "name": "email",
           "type": "string",
-          "description": "User's email address"
+          "description": "Email address"
         },
         "name": {
           "name": "name",
           "type": "array",
-          "description": "User's name",
+          "description": "Name",
           ".first": {
             "name": "first",
             "type": "string",
-            "description": "User's first or give name"
+            "description": "First or give name"
           },
           ".last": {
             "name": "last",
             "type": "string",
-            "description": "User's last or family name"
+            "description": "Last or family name"
           }
         },
         "mobile": {
           "name": "mobile",
           "type": "array",
-          "description": "User's mobile information",
+          "description": "Mobile information",
           ".country_code": {
             "name": "country_code",
             "type": "int",
-            "description": "User's mobile country code"
+            "description": "Mobile country code"
           },
           ".number": {
             "name": "number",
             "type": "int",
-            "description": "User's mobile number"
+            "description": "Mobile number"
           }
         },
-        "id": {
-          "name": "id",
+        "identification": {
+          "name": "identification",
           "type": "array",
-          "description": "User's identification information",
+          "description": "Identification information",
           ".type": {
             "name": "type",
             "type": "string",
-            "description": "User's identification card type"
+            "description": "Identification card type"
           },
           ".number": {
             "name": "number",
             "type": "string",
-            "description": "User's identification card number"
+            "description": "Identification card number"
           }
         },
         "birthday": {
           "name": "birthday",
           "type": "date",
-          "description": "User's date of birth"
+          "description": "Date of birth"
         },
         "gender": {
           "name": "gender",
           "type": "string",
-          "description": "User's gender"
+          "description": "Gender"
         },
         "links": {
           "name": "links",
           "type": "array",
-          "description": "User's addtional information",
+          "description": "Addtional information",
           ".rel": {
             "name": "rel",
             "type": "string",
@@ -99,26 +99,26 @@
         "status": {
           "name": "status",
           "type": "array",
-          "description": "User status information",
+          "description": "Status information",
           ".is_active": {
             "name": "is_active",
             "type": "boolean",
-            "description": "User account status"
+            "description": "Account status"
           },
           ".text": {
             "name": "text",
             "type": "string",
-            "description": "User account status in plain text"
+            "description": "Account status in plain text"
           }
         },
         "date": {
           "name": "date",
           "type": "array",
-          "description": "User's significant account events",
+          "description": "Date Information",
           ".registration": {
             "name": "registration",
             "type": "date",
-            "description": "User's registration date"
+            "description": "Registration date"
           }
         }
       },

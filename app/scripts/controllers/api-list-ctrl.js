@@ -12,7 +12,7 @@
 //     $scope.apis = ApiResults.query();
 //   });
 
-apiGeneratorControllers.controller('ApiListCtrl', ['$scope', 'Api', function($scope, Api){
+apiGeneratorControllers.controller('ApiListCtrl', ['$scope','yaru22.md', 'Api', function($scope, Api){
     $scope.apis = Api.query();
     $scope.orderProp = 'name';
 }]);

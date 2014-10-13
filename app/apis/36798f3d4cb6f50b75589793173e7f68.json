@@ -1,155 +1,7 @@
-<section>
-    <section st-section="banner">
-        <h1>{{Apiname}} Documentation</h1>
-    </section>
-    <section st-section="version">
-        <span class="inline-block-el" vertical-align="middle">API reference /{{api.version}}/ </span>
-        <div class="button dropdown" vertical-align="middle">
-            <select name="routeChanger" id="routeChanger" ng-model="route.selectedRoute" ng-change="go(route.selectedRoute)">
-                <option  ng-repeat="api in apis | orderBy:orderProp"  value="/apis/{{api.href}}">{{api.name}}</option>
-            </select>
-        </div>
-    </section>
-    <section st-section="documentation">
-        <aside ng-include="'partials/search.html'" scope="" onload=""></aside>
-        <section st-section="content">
-            <div ng-if="'$scope.typeofpackage($scope) === api'">
-                <div st-section="subSection" data-ng-repeat="method in getParams | orderBy:name">
-                    <div st-section="apiName">
-                        <h3>{{method.name}}</h3>
-                    </div>
-                    <div st-section="apiInfo">
-                        <dl>
-                            <dt>Description</dt>
-                            <dd>{{method.description}}</dd>
-                        </dl>
-                        <table ng-if="method.response">
-                            <tr><th>Response</th></tr>
-                            <tr>
-                              <td>
-                                <table>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Description</th>
-                                    </tr>
-                                    <tr data-ng-repeat="(key, value) in method.response">
-                                        <td>
-                                            {{$index + 1}}
-                                        </td>
-                                        <td>
-                                            {{value.name}}
-                                            <div ng-if ="method.response.name === 'date'">
-                                            <dl>
-                                                <dt>
-                                                    <table>
-                                                        <tr data-ng-repeat="(key, value) in method.response.date">
-                                                            <td>
-                                                                {{$index + 1}}
-                                                            </td>
-                                                            <td>
-                                                                {{value.name}}
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </dt>
-                                                <dd>
-
-                                                </dd>
-                                            </dl>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            {{value.type}}
-                                        </td>
-                                        <td class="descTxt">
-                                            {{value.description}}
-                                        </td>
-                                    </tr>
-                                </table>
-                              </td>
-                            </tr>
-                        </table>
-                        <table ng-if="method.requests">
-                            <tr><th>Request</th></tr>
-                            <tr>
-                              <td>
-                                <table>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Optional</th>
-                                    </tr>
-                                    <tr data-ng-repeat="(key, value) in method.requests">
-                                        <td>
-                                            {{key + 1}}
-                                        </td>
-                                        <td>
-                                            {{value.name}}
-                                        </td>
-                                        <td>
-                                            {{value.type}}
-                                        </td>
-                                        <td class="descTxt">
-                                            {{value.optional}}
-                                        </td>
-                                    </tr>
-                                </table>
-                              </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div ng-if="'$scope.typeofpackage($scope) === errors'">
-                <div st-section="subSection" data-model="getParams">
-                    <div st-section="apiName">
-                        <h2>Error Name</h2>
-                        <br/>
-                        <h3>{{data.name}}</h3>
-                    </div>
-                    <div st-section="apiInfo">
-                        <dl>
-                            <dt>Description</dt>
-                            <dd>{{data.description}}</dd>
-                        </dl>
-                        <table>
-                            <tr><th>Contents</th></tr>
-                            <tr>
-                              <td>
-                                <table>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                    </tr>
-                                    <tr data-ng-repeat="content in data.contents">
-                                        <td>
-                                            {{content.name}}
-                                        </td>
-                                        <td class="descTxt">
-                                            {{content.description}}
-                                        </td>
-                                    </tr>
-                                </table>
-                              </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div ng-if="'$scope.typeofpackage($scope) === resource'">
-                <div st-section="subSection" data-model="getParams">
-                    <div st-section="apiName">
-                        <h3>{{data.name}}</h3>
-                    </div>
-                    <div st-section="apiInfo">
-                        <dl>
-                            <dt>Description</dt>
-                            <dd>
-                            <md>
-# Authentication and Resource access (OAuth 1.0-a)
+{
+  "package": "vcard-resource",
+  "name": "vcard-resource",
+  "description": "# Authentication and Resource access (OAuth 1.0-a)
 
 ## How can I Login?
 -- Requesting for an OAuth Request Token
@@ -195,7 +47,7 @@ account that is used to connect to the API system.
 
         * `query`  -- The `parameters` your from *[Step 2]*.
 
-    b. ##### Join the `payload` (`method`, `url`, `query`) with `&amp;` from *[Step 3a]*.
+    b. ##### Join the `payload` (`method`, `url`, `query`) with `&` from *[Step 3a]*.
 
     c. ##### Encode the *[API Secret]* using [RFC-3986](www.rfc-base.org/rfc-3986.html). **API Secret** is also referred to as **OAuth Secret Key**.
 
@@ -298,13 +150,5 @@ account that is used to connect to the API system.
             * ##### oauth_signature
             Result of *[Step 3]*.
 
-        5. #### Send the `parameters` to the `host` using the `method` specified in *[Step 3]*.
-                            </md>
-                            </dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
-</section>
+        5. #### Send the `parameters` to the `host` using the `method` specified in *[Step 3]*."
+}

@@ -17,7 +17,8 @@ var apiGeneratorApp = angular.module('apiGeneratorApp',[
     'ngSanitize',
     'ngTouch',
     'apiGeneratorControllers',
-    'apiGeneratorServices'
+    'apiGeneratorServices',
+    'yaru22.md'
 ]);
 
 apiGeneratorApp.config(['$routeProvider', function($routeProvider) {
@@ -26,7 +27,7 @@ apiGeneratorApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'partials/api-list.html',
         controller: 'ApiListCtrl'
       })
-      .when('/apis/:apiHref.json', {
+      .when('/apis/:apiHref', {
         templateUrl: 'partials/api-detail.html',
         controller: 'ApiDetailCtrl'
       })

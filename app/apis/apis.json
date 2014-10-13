@@ -17,28 +17,68 @@
     "package": [
       "v1"
     ],
-    "name": "Users/Wallets/Cards/Transactions",
-    "href": "26e678e573338fc855acf7f81ca23e57"
-  },
-  {
-    "package": [
-      "v1"
-    ],
     "name": "Users/Wallets/Cards",
-    "href": "4873f407f718054afe4f62fdd6fe855b"
+    "href": "5788357cd415eeabca34033d9d4c9b10"
   },
   {
     "package": [
       "v1"
     ],
     "name": "Users/Wallets",
-    "href": "1276f650d6fe9fe74043737d87dda44b"
+    "href": "be8fda928721b02a3f82985d968af842"
   },
   {
     "package": [
       "v1"
     ],
     "name": "Users",
-    "href": "7a7f26da116655201de6df0e9a9c2d38"
+    "href": "c218f1637a7375733bc7512380483d6b"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "400",
+    "href": "139c54d674d2920cf8328d7739caa0d3"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "401",
+    "href": "f6fb8b5ad654401a1c8b151cf5d3a41f"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "404",
+    "href": "0e37a4f44e7294a57f94e697e73569ed"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "405",
+    "href": "faa8416c14e8242bfca0fca91e15b875"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "406",
+    "href": "dba167cf0a1d35c24d9f55913ea78c39"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "500",
+    "href": "dd8c1c399604ac0515fc1e1ce66f0624"
+  },
+  {
+    "package": "vcard-resource",
+    "name": "vcard-resource",
+    "href": "36798f3d4cb6f50b75589793173e7f68"
   }
 ]
