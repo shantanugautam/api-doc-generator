@@ -23,8 +23,7 @@ apiGeneratorControllers.controller('ApiDetailCtrl', ['$location', '$scope', '$ro
         $scope.data = api;
 
         $scope.typeofpackage = function($scope) {
-            console.log(api.package);
-            console.log(api.package[0]);
+            console.log(api);
             if(api.package === "vcard-resource") {
                 return 'resource';
             }
