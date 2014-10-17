@@ -122,3 +122,39 @@
 }
 
 
+.contentMarkdown {
+    font-family: sans-serif;
+    font-size: 14px;
+    code {
+        font-family: monospace;
+    }
+    a {
+        font-size: 14px !important;
+    }
+    ul{
+        padding-left: 1em;
+        list-style-type: disc;
+    }
+    ol {
+        padding-left: 1em;
+        list-style-type: decimal;
+    }
+    h1 {
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 15px;
+        font-family: sans-serif;
+    }
+    h2 {
+        font-size: 21px;
+        line-height: 24px;
+        margin-bottom: 10px;
+        font-family: sans-serif;
+    }
+    h3 {
+        font-size: 18px;
+        line-height: 21px;
+        margin-bottom: 10px;
+        font-family: sans-serif;
+    }
+}
