@@ -1,0 +1,28 @@
+{
+  "name": "Users/Wallets/Cards/Securities/Tokens",
+  "package": [
+    "v1"
+  ],
+  "version": [
+    "1.0.0"
+  ],
+  "description": "Card(s) Dynamic CSC",
+  "methods": [
+    {
+      "name": "get",
+      "response": {
+        "value": {
+          "name": "value",
+          "type": "int",
+          "description": "Secure passcode"
+        },
+        "expiry": {
+          "name": "expiry",
+          "type": "date",
+          "description": "Secure passcode's Expiration date"
+        }
+      },
+      "description": "Returns the user's information"
+    }
+  ]
+}
