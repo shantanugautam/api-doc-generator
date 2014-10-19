@@ -3,18 +3,25 @@
         <h1>{{Apiname}} Documentation</h1>
     </section>
     <section st-section="version">
-        <span class="inline-block-el" vertical-align="middle">API reference /{{api.version}}/ </span>
-        <div class="button dropdown" vertical-align="middle">
-            <select name="routeChanger" id="routeChanger" ng-model="route.selectedRoute" ng-change="go(route.selectedRoute)">
-                <option  ng-repeat="api in apis | orderBy:orderProp"  value="/apis/{{api.href}}">{{api.name}}</option>
-            </select>
+        <div st-section="miniInfo">
+            <h3>Optimus Prime</h3>
+            <span class="inline-block-el" vertical-align="middle">API reference /{{api.version}}/ </span>
+            <input type="search" placeholder="Search">
         </div>
+        <ul st-section="sidebar">
+            <li name="routeChanger" id="routeChanger" ng-model="route.selectedRoute" ng-change="go(route.selectedRoute)"
+                ng-repeat="api in apis" >
+                <a ng-href="index.html#/apis/{{api.href}}">
+                {{api.name}}
+                </a>
+            </li>
+        </ul>
     </section>
     <section st-section="documentation">
-        <aside ng-include="'partials/search.html'" scope="" onload=""></aside>
+        <h2 ng-model="route.selectedRoute">{{api.name}}</h2>
         <section st-section="content" ng-switch="typeofpackage()">
             <div ng-switch-when="api">
-                <div st-section="subSection" data-ng-repeat="method in getParams | orderBy:name">
+                <div st-section="subSection" data-ng-repeat="method in getParams">
                     <div st-section="apiName">
                         <h3>{{method.name}}</h3>
                     </div>
@@ -34,37 +41,24 @@
                                         <th>Type</th>
                                         <th>Description</th>
                                     </tr>
-                                    <tr data-ng-repeat="(key, value) in method.response">
-                                        <td>
-                                            {{$index + 1}}
+                                    <tr data-ng-repeat="response in method.response">
+                                        <td class="index">
+                                            <p>{{$index + 1}}</p>
                                         </td>
-                                        <td>
-                                            {{value.name}}
-                                            <div ng-if ="method.response.name === 'date'">
-                                            <dl>
-                                                <dt>
-                                                    <table>
-                                                        <tr data-ng-repeat="(key, value) in method.response.date">
-                                                            <td>
-                                                                {{$index + 1}}
-                                                            </td>
-                                                            <td>
-                                                                {{value.name}}
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </dt>
-                                                <dd>
-
-                                                </dd>
-                                            </dl>
-                                            </div>
+                                        <td class="name">
+                                            <p>{{response.name}}</p>
                                         </td>
-                                        <td>
-                                            {{value.type}}
+                                        <td class="description {{response.type}}Type">
+                                            <p>{{response.type}}</p>
                                         </td>
                                         <td class="descTxt">
-                                            {{value.description}}
+                                            <p>{{response.description}}</p>
+                                            <div ng-if="response.type == 'array'">
+                                                <h5>Additional Info</h5>
+                                                <code>
+                                                {{response}}
+                                                </code>
+                                            </div>
                                         </td>
                                     </tr>
                                 </table>
@@ -145,7 +139,9 @@
                         <h3>{{data.name}}</h3>
                     </div>
                     <div st-section="apiInfo">
+                    {{data.description}}
                         <md class="contentMarkdown">
+
 # Authentication and Resource access (OAuth 1.0-a)
 
 ## How can I Login?

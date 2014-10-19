@@ -21,7 +21,11 @@
 
 
 [st-section~="version"] {
-    padding: 1em;
+    // padding: 1em;
     border-bottom: 1px inset $white;
+    @media screen and (min-width: 681px) {
+        width: 25%;
+        float: left;
+    }
     // font-size: 2em;
 }

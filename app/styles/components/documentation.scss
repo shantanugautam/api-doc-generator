@@ -1,10 +1,38 @@
 * {
     box-sizing: border-box;
+    &:after,&:before{
+        box-sizing: border-box;
+    }
+}
+input[type="search"] {
+    display: block;
+    width: 100%;
+    box-sizing:border-box;
 }
 
-[st-section~="documentation"] {
+[st-section~="miniInfo"] {
     padding: 1em;
+}
+[st-section~="sidebar"] {
+    a {
+        word-break:break-all;
+        display: block;
+        padding: .05em 1em;
+        &:hover{
+            background: #09f;
+            color:#fff;
+        }
+    }
+
+    li {
+        border-bottom: 1px solid rgba(255,255,255,.3);
+
+    }
+}
+[st-section~="documentation"] {
+    padding: 0;
     font-weight: 300;
+    border-left: 1px solid #ddd;
     b , strong {
         font-weight: 700;
     }
@@ -16,12 +44,25 @@
     h2 {
         font-family: monospace;
     }
+    table {
+        width: 100%;
+    }
+    & > h2 {
+        font-family: sans-serif;
+        font-size: 2em;
+        margin:1em 1em 0;
+        word-break:break-all;
+    }
+    @media screen and (min-width: 681px) {
+        float: left;
+        width: 75%;
+    }
 }
 
 [st-section~="subSection"] {
     // margin-bottom: 1em;
     border-bottom: 1px solid rgba(20,20,20,.3);
-    padding:0;
+    padding:0 1em;
     font-size: 1.8em;
     h3 ~ p {
         margin: .25em 0 .5em;
@@ -38,14 +79,51 @@
         padding-top: .25em;
         color: #666;
     }
+    tbody tr:nth-child(odd) {
+        td {
+            background-color: #f2f2f2;
+        }
+
+    }
     table {
+        box-sizing:border-box;
+        tr {
+            td {
+                &:first-of-type {
+                    width: 40px;
+                }
+            }
+        }
         td {
             font-family: monospace;
+            vertical-align: top;
+            font-size: .8em;
+            line-height: 1.1;
+            padding: 10px;
+            h5 {
+                display: block;
+                font-size: 1.1em;
+                font-weight: bold;
+                margin-top: 10px;
+            }
         }
         td.descTxt {
             font-family: sans-serif;
-            font-size: .5em;
             color: #666;
+            max-width: 140px;
+            word-break:break-all;
+        }
+        td.name {
+            font-family: sans-serif;
+            p {
+                padding: 5px;
+            }
+        }
+        td.index {
+            font-family: sans-serif;
+            p {
+                padding: 5px;
+            }
         }
         th {
             text-align: left;
@@ -68,7 +146,7 @@
             }
             td {
                 font-size: .6em;
-                padding: .5em .25em;
+                // padding: .5em .25em;
             }
         }
     }
@@ -96,6 +174,33 @@
             padding: 0;
         }
     }
+    .arrayType {
+        p {
+            display: inline-block;
+            background: blue;
+            color: #fff;
+            padding: 5px;
+            border-radius: 4px;
+        }
+    }
+    .stringType {
+        p {
+            display: inline-block;
+            background: orange;
+            color: #fff;
+            padding: 5px;
+            border-radius: 4px;
+        }
+    }
+    .floatType {
+        p {
+            display: inline-block;
+            background: blue;
+            color: #fff;
+            padding: 5px;
+            border-radius: 4px;
+        }
+    }
 }
 [st-section~="apiName"] {
     padding-top: 1em;
@@ -108,19 +213,18 @@
     }
 }
 
-@media screen and (min-width: 680px) {
-    [st-section~="apiName"] {
-        width: 30%;
-        float: left;
-    }
-    [st-section~="apiInfo"] {
-        width: 70%;
-        float: left;
-        border-left : 1px solid #ddd;
-        padding-left: 1em;
-    }
-}
-
+// @media screen and (min-width: 680px) {
+//     [st-section~="apiName"] {
+//         width: 30%;
+//         float: left;
+//     }
+//     [st-section~="apiInfo"] {
+//         width: 70%;
+//         float: left;
+//         border-left : 1px solid #ddd;
+//         padding-left: 1em;
+//     }
+// }
 
 .contentMarkdown {
     font-family: sans-serif;

@@ -21,9 +21,9 @@ apiGeneratorControllers.controller('ApiDetailCtrl', ['$location', '$scope', '$ro
     $scope.api = Api.get({apiHref: $routeParams.apiHref}, function(api) {
 
         $scope.data = api;
+        $scope.getParams = api.methods;
 
         $scope.typeofpackage = function($scope) {
-            console.log(api);
             if(api.package === "vcard-resource") {
                 return 'resource';
             }
@@ -35,10 +35,6 @@ apiGeneratorControllers.controller('ApiDetailCtrl', ['$location', '$scope', '$ro
             }
 
         };
-
-
-        $scope.getParams = api.methods;
-
 
         $scope.isEmpty = function() {
           return ($scope.$nodesScope && $scope.$nodesScope.$modelValue && $scope.$nodesScope.$modelValue.length === 0);
