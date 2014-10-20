@@ -242,6 +242,14 @@ input[type="search"] {
     ol {
         padding-left: 1em;
         list-style-type: decimal;
+        margin-left: 10px;
+        & > li {
+            margin-bottom: 5px;
+        }
+    }
+    p {
+        font-size: 1em !important;
+        line-height: 1.1;
     }
     h1 {
         font-size: 24px;
@@ -252,13 +260,15 @@ input[type="search"] {
     h2 {
         font-size: 21px;
         line-height: 24px;
+        margin-top: 25px;
         margin-bottom: 10px;
         font-family: sans-serif;
     }
     h3 {
         font-size: 18px;
         line-height: 21px;
-        margin-bottom: 10px;
+        margin-top: 15px;
+        margin-bottom: 5px;
         font-family: sans-serif;
     }
 }

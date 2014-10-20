@@ -36,15 +36,11 @@
                               <td>
                                 <table>
                                     <tr>
-                                        <th>No</th>
                                         <th>Name</th>
                                         <th>Type</th>
                                         <th>Description</th>
                                     </tr>
                                     <tr data-ng-repeat="response in method.response">
-                                        <td class="index">
-                                            <p>{{$index + 1}}</p>
-                                        </td>
                                         <td class="name">
                                             <p>{{response.name}}</p>
                                         </td>
@@ -55,6 +51,74 @@
                                             <p>{{response.description}}</p>
                                             <div ng-if="response.type == 'array'">
                                                 <h5>Additional Info</h5>
+                                                <code>
+                                                    <div ng-if="response.name == 'cards'">
+                                                       {{response['.date']}}
+                                                       {{response['.expiry']}}
+                                                       {{response['.links']}}
+                                                       {{response['.rel']}}
+                                                       {{response['.href']}}
+                                                       {{response['.method']}}
+                                                       {{response['.status']}}
+                                                       {{response['.is_active']}}
+                                                       {{response['.text']}}
+                                                       --------
+                                                    </div>
+                                                    <div ng-if="response.name == 'date'">
+                                                       {{response['.registration']}}
+                                                       {{response['.issued']}}
+                                                       {{response['.created']}}
+                                                       {{response['.expiry']}}
+                                                       --------
+                                                    </div>
+                                                    <div ng-if="response.name == 'funds'">
+                                                       {{response['.available']}}
+                                                       {{response['.currency']}}
+                                                       {{response['.amount']}}
+                                                       --------
+                                                    </div>
+                                                    <div ng-if="response.name == 'holder'">
+                                                       {{response['.name']}}
+                                                       --------
+                                                    </div>
+                                                    <div ng-if="response.name == 'identification'">
+                                                       {{response['.type']}}
+                                                       {{response['.number']}}
+                                                       --------
+                                                    </div>
+                                                    <div ng-if="response.name == 'image'">
+                                                       {{response['.small']}}
+                                                       {{response['.medium']}}
+                                                       {{response['.large']}}
+                                                       --------
+                                                    </div>
+                                                    <div ng-if="response.name == 'links'">
+                                                       {{response['.rel']}}
+                                                       {{response['.href']}}
+                                                       {{response['.method']}}
+                                                       --------
+                                                    </div>
+                                                    <div ng-if="response.name == 'mobile'">
+                                                       {{response['.country_code']}}
+                                                       {{response['.number']}}
+                                                       --------
+                                                    </div>
+                                                    <div ng-if="response.name == 'recipient'">
+                                                       {{response['.type']}}
+                                                       {{response['.id']}}
+                                                       --------
+                                                    </div>
+                                                    <div ng-if="response.name == 'status'">
+                                                       {{response['.is_active']}}
+                                                       {{response['.text']}}
+                                                       --------
+                                                    </div>
+                                                    <div ng-if="response.name == 'type'">
+                                                       {{response['.name']}}
+                                                       {{response['.description']}}
+                                                       --------
+                                                    </div>
+                                                </code>
                                                 <code>
                                                 {{response}}
                                                 </code>
@@ -71,23 +135,23 @@
                               <td>
                                 <table>
                                     <tr>
-                                        <th>No</th>
                                         <th>Name</th>
                                         <th>Type</th>
                                         <th>Optional</th>
+                                        <th>Description</th>
                                     </tr>
                                     <tr data-ng-repeat="(key, value) in method.requests">
-                                        <td>
-                                            {{key + 1}}
-                                        </td>
                                         <td>
                                             {{value.name}}
                                         </td>
                                         <td>
                                             {{value.type}}
                                         </td>
-                                        <td class="descTxt">
+                                        <td>
                                             {{value.optional}}
+                                        </td>
+                                        <td class="descTxt">
+                                            {{value.description}}
                                         </td>
                                     </tr>
                                 </table>
@@ -99,11 +163,9 @@
             </div>
             <div ng-switch-when="errors">
                 <div st-section="subSection" data-model="getParams">
-                    <div st-section="apiName">
-                        <h2>Error Name</h2>
-                        <br/>
-                        <h3>{{data.name}}</h3>
-                    </div>
+<!--                     <div st-section="apiName">
+                        <h2>{{data.name}}</h2>
+                    </div> -->
                     <div st-section="apiInfo">
                         <dl>
                             <dt>Description</dt>
@@ -135,9 +197,6 @@
             </div>
             <div ng-switch-when="resource">
                 <div st-section="subSection" data-model="getParams">
-<!--                     <div st-section="apiName">
-                        <h3>{{data.name}}</h3>
-                    </div> -->
                     <div st-section="apiInfo">
                         <md class="contentMarkdown" ng-include="'https://s3.amazonaws.com/elasticbeanstalk-us-east-1-576856514417/API-Readme.md'">
                         </md>
