@@ -25,7 +25,7 @@
       "v1"
     ],
     "name": "Users/Wallets",
-    "href": "be8fda928721b02a3f82985d968af842"
+    "href": "7816609b757f48a6421be0a7bfb4c8bd"
   },
   {
     "package": [
@@ -39,7 +39,7 @@
       "v1/errors"
     ],
     "name": "400",
-    "href": "139c54d674d2920cf8328d7739caa0d3"
+    "href": "ca988181554997d91bffa8025d694b6f"
   },
   {
     "package": [
@@ -73,12 +73,21 @@
     "package": [
       "v1/errors"
     ],
+    "name": "498",
+    "href": "b6955d3542352aa00b042ff2b6e32eff"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
     "name": "500",
     "href": "dd8c1c399604ac0515fc1e1ce66f0624"
   },
   {
-    "package": "vcard-resource",
-    "name": "vcard-resource",
-    "href": "36798f3d4cb6f50b75589793173e7f68"
+    "package": [
+      "v1"
+    ],
+    "name": "v1",
+    "href": "3475edc2ecdec7feeb6fd933661100f9"
   }
 ]
