@@ -13,19 +13,17 @@ apiGeneratorControllers.controller('ApiDetailCtrl', ['$location', '$scope', '$ro
     $scope.orderProp = 'name';
 
     $scope.currentPage = "/apis/:apiHref";
-    console.log($routeParams);
+
     $scope.go = function( path ){
         $location.path(path);
     }
 
-    $scope.isActive = function($routeParams,$scope) {
-        console.log($routeParams,$location.path());
-      if ($routeParams.apiHref == $location.path()) {
-        console.log($routeParams.apiHref,$location.path());
-        return true;
-      }
-      return false;
+    $scope.isActive = function (viewLocation) {
+        var pattern = '/' + viewLocation,
+            re = new RegExp(pattern);
+        return re.test($location.path());
     };
+
 
     $scope.api = Api.get({apiHref: $routeParams.apiHref}, function(api) {
 

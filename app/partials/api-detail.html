@@ -11,7 +11,7 @@
         <ul st-section="sidebar">
             <li name="routeChanger" id="routeChanger" ng-model="route.selectedRoute" ng-change="go(route.selectedRoute)"
                 ng-repeat="api in apis | filter:searchText">
-                <a ng-href="index.html#/apis/{{api.href}}" ng-class="{active: isActive(apis)}">
+                <a ng-href="index.html#/apis/{{api.href}}" ng-class="{ active: isActive(api.href)}">
                 {{api.name}}
                 </a>
             </li>
