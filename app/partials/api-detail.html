@@ -6,12 +6,12 @@
         <div st-section="miniInfo">
             <h3>Optimus Prime</h3>
             <span class="inline-block-el" vertical-align="middle">API reference /{{api.version}}/ </span>
-            <input type="search" placeholder="Search">
+            <input type="search" placeholder="Search" ng-model="searchText">
         </div>
         <ul st-section="sidebar">
             <li name="routeChanger" id="routeChanger" ng-model="route.selectedRoute" ng-change="go(route.selectedRoute)"
-                ng-repeat="api in apis" >
-                <a ng-href="index.html#/apis/{{api.href}}">
+                ng-repeat="api in apis | filter:searchText">
+                <a ng-href="index.html#/apis/{{api.href}}" ng-class="{active: isActive(apis)}">
                 {{api.name}}
                 </a>
             </li>
@@ -435,9 +435,6 @@
             </div>
             <div ng-switch-when="errors">
                 <div st-section="subSection" data-model="getParams">
-<!--                     <div st-section="apiName">
-                        <h2>{{data.name}}</h2>
-                    </div> -->
                     <div st-section="apiInfo">
                         <dl>
                             <dt>Description</dt>
@@ -470,7 +467,7 @@
             <div ng-switch-when="resource">
                 <div st-section="subSection" data-model="getParams">
                     <div st-section="apiInfo">
-                        <md class="contentMarkdown" ng-include="'https://s3.amazonaws.com/elasticbeanstalk-us-east-1-576856514417/API-Readme.md'">
+                        <md class="contentMarkdown" ng-model="data.description">
                         </md>
                     </div>
                 </div>

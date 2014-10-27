@@ -12,7 +12,7 @@ var apiGeneratorControllers = angular.module('apiGeneratorControllers', []);
 
 
 apiGeneratorControllers.controller('MainCtrl', ['$scope', '$http', function($scope, $http){
-    $http.get('/apis/main.json').success(function(data){
+    $http.get('apis/main.json').success(function(data){
         $scope.info = data;
         console.log(data);
     });

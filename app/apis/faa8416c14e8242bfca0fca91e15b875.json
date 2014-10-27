@@ -1,16 +1,1 @@
-{
-  "name": "405",
-  "package": [
-    "v1/errors"
-  ],
-  "version": [
-    "1.0.0"
-  ],
-  "description": "Errorr 405 Messages",
-  "contents": [
-    {
-      "name": "method_not_supported",
-      "description": "Api request method is not supported"
-    }
-  ]
-}
+{"name":"405","package":["v1\/errors"],"version":["1.0.0"],"description":"Errorr 405 Messages","contents":[{"name":"method_not_supported","description":"Api request method is not supported"}]}

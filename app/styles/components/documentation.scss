@@ -23,6 +23,10 @@ input[type="search"] {
             color:#fff;
         }
     }
+    a.active {
+        background: #09f;
+        color:#fff;
+    }
 
     li {
         border-bottom: 1px solid rgba(255,255,255,.3);

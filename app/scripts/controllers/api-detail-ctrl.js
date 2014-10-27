@@ -13,10 +13,19 @@ apiGeneratorControllers.controller('ApiDetailCtrl', ['$location', '$scope', '$ro
     $scope.orderProp = 'name';
 
     $scope.currentPage = "/apis/:apiHref";
-
+    console.log($routeParams);
     $scope.go = function( path ){
         $location.path(path);
     }
+
+    $scope.isActive = function($routeParams,$scope) {
+        console.log($routeParams,$location.path());
+      if ($routeParams.apiHref == $location.path()) {
+        console.log($routeParams.apiHref,$location.path());
+        return true;
+      }
+      return false;
+    };
 
     $scope.api = Api.get({apiHref: $routeParams.apiHref}, function(api) {
 
@@ -24,7 +33,7 @@ apiGeneratorControllers.controller('ApiDetailCtrl', ['$location', '$scope', '$ro
         $scope.getParams = api.methods;
 
         $scope.typeofpackage = function($scope) {
-            if(api.package === "vcard-resource") {
+            if(api.name === "v1") {
                 return 'resource';
             }
             else if(api.package[0] === "v1/errors") {
