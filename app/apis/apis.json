@@ -3,6 +3,20 @@
     "package": [
       "v1"
     ],
+    "name": "Oauth/Access/Token",
+    "href": "1e15447b8e459d56c7674264272aa050"
+  },
+  {
+    "package": [
+      "v1"
+    ],
+    "name": "Oauth/Request/Token",
+    "href": "9e674589be136e9ca179b7bb02dff084"
+  },
+  {
+    "package": [
+      "v1"
+    ],
     "name": "Users/Wallets/Cards/Funds/Transfers",
     "href": "e912f0b77324e8e387a30a8b56bf77f4"
   },
@@ -88,6 +102,6 @@
       "v1"
     ],
     "name": "v1",
-    "href": "3475edc2ecdec7feeb6fd933661100f9"
+    "href": "bcc2c672ea325131a8fd3f45e3d692a6"
   }
 ]

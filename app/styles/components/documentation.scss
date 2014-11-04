@@ -306,9 +306,9 @@ input[type="search"] {
     code {
         font-family: monospace;
     }
-    a {
-        font-size: 14px !important;
-    }
+    // a {
+    //     font-size: 14px !important;
+    // }
     ul{
         padding-left: 1em;
         list-style-type: disc;
@@ -325,16 +325,17 @@ input[type="search"] {
         font-size: 1em !important;
         line-height: 1.1;
         word-break:break-all;
+        margin-top: 1.4em;
     }
     h1 {
-        font-size: 24px;
+        font-size: 2em;
         line-height: 28px;
         margin-bottom: 15px;
+        font-weight: bold;
         font-family: sans-serif;
     }
     h2 {
-        font-size: 21px;
-        line-height: 24px;
+        font-size: 1.8em;
         margin-top: 25px;
         margin-bottom: 10px;
         font-family: sans-serif;
@@ -345,5 +346,18 @@ input[type="search"] {
         margin-top: 15px;
         margin-bottom: 5px;
         font-family: sans-serif;
+    }
+    blockquote {
+        @include clearfix;
+        & > p{
+            margin-top: .5em;
+        }
+        blockquote ~ p {
+            margin-top: 1em;
+        }
+    }
+    h4 {
+        margin-top: 1em;
+        font-size: 1.4em;
     }
 }
