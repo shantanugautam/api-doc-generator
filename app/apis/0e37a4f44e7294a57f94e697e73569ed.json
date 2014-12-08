@@ -1,1 +1,0 @@
-{"name":"404","package":["v1\/errors"],"version":["1.0.0"],"description":"Errorr 404 Messages","contents":[{"name":"resource_not_found","description":"Invalid api. Request api doesn't exist"}]}

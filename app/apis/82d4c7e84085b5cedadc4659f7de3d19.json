@@ -1,0 +1,16 @@
+{
+  "name": "405",
+  "package": [
+    "v1/errors"
+  ],
+  "version": [
+    "1.0.1"
+  ],
+  "description": "Error 405 Resource Action Errors",
+  "contents": [
+    {
+      "name": "method_not_supported",
+      "description": "Api request method is not supported"
+    }
+  ]
+}

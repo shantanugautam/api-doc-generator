@@ -1,0 +1,84 @@
+{
+  "name": "Validation Errors",
+  "package": [
+    "resource/validation/errors"
+  ],
+  "version": [
+    "1.2.0"
+  ],
+  "description": "User Resource Validation Errors",
+  "contents": [
+    {
+      "name": "Validation:User:Email:NotEmpty",
+      "description": "Email address is required"
+    },
+    {
+      "name": "Validation:User:Email:Lengthmax",
+      "description": "Email address maximum number of characters is 127"
+    },
+    {
+      "name": "Validation:User:Email:Email",
+      "description": "Email address is invalid"
+    },
+    {
+      "name": "Validation:User:Email:EmailDomain",
+      "description": "Email domain is invalid"
+    },
+    {
+      "name": "Validation:User:Email:EmailUnique",
+      "description": "Email address is already registered"
+    },
+    {
+      "name": "Validation:User:Email:EmailValidate",
+      "description": "Email address is invalid"
+    },
+    {
+      "name": "Validation:User:OldPwd:NotEmpty",
+      "description": "Current password is required"
+    },
+    {
+      "name": "Validation:User:OldPwd:Match",
+      "description": "Current password is invalid"
+    },
+    {
+      "name": "Validation:User:Password:NotEmpty",
+      "description": "Password is required"
+    },
+    {
+      "name": "Validation:User:Password:Lengthmin",
+      "description": "Password should be at least 8 characters"
+    },
+    {
+      "name": "Validation:User:Password:Lengthmax",
+      "description": "Password should be less than or equal to 32 characters"
+    },
+    {
+      "name": "Validation:User:Password:Rule",
+      "description": "Password format is invalid"
+    },
+    {
+      "name": "Validation:User:Password:Unique",
+      "description": "Password does not match"
+    },
+    {
+      "name": "Validation:User:PasswordConfirm:NotEmpty",
+      "description": "Confirm Password is required"
+    },
+    {
+      "name": "Validation:User:PasswordConfirm:Lengthmin",
+      "description": "Confirm Password should be at least 8 characters"
+    },
+    {
+      "name": "Validation:User:PasswordConfirm:Lengthmax",
+      "description": "Confirm Password should be less than or equal to 32 characters"
+    },
+    {
+      "name": "Validation:User:PasswordConfirm:Match",
+      "description": "Password does not match"
+    },
+    {
+      "name": "Validation:User:PasswordConfirm:Rule",
+      "description": "Password format is invalid"
+    }
+  ]
+}

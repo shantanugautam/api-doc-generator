@@ -14,7 +14,8 @@
     "angular-route" : "1.3.x"
   },
   "devDependencies": {
-    "angular-mocks": "1.3.x"
+    "angular-mocks": "1.3.x",
+    "angularmd" : "yaru22/angular-md"
   },
   "resolutions": {
     "angular": "1.3.x",

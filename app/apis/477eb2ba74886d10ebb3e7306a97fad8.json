@@ -1,0 +1,16 @@
+{
+  "name": "404",
+  "package": [
+    "v1/errors"
+  ],
+  "version": [
+    "1.0.1"
+  ],
+  "description": "Error 404 Resource Support Errors",
+  "contents": [
+    {
+      "name": "resource_not_found",
+      "description": "Invalid api. Request api doesn't exist"
+    }
+  ]
+}

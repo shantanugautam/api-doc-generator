@@ -1,38 +1,87 @@
 [
   {
     "package": [
-      "v1"
+      "v1/errors"
     ],
-    "name": "Oauth/Access/Token",
-    "href": "1e15447b8e459d56c7674264272aa050"
+    "name": "500",
+    "href": "12cfe79f0e5d74e999be6313c6fa4f21"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "405",
+    "href": "82d4c7e84085b5cedadc4659f7de3d19"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "403",
+    "href": "0145bc7cbcbf484a10f30553e31a1095"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "404",
+    "href": "477eb2ba74886d10ebb3e7306a97fad8"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "401",
+    "href": "0f88b2b85ff111c8038c0a1bc7ea69ad"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "406",
+    "href": "d254e3759ed7f9943948b6296c3e69a8"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "400",
+    "href": "107f378b61d25c5fc983f1e4b27be016"
+  },
+  {
+    "package": [
+      "v1/errors"
+    ],
+    "name": "498",
+    "href": "a2002672f63808e394924750c86f15a9"
+  },
+  {
+    "package": [
+      "resource/validation/errors"
+    ],
+    "name": "Validation Errors",
+    "href": "a012df9abde064e7a2d0b5362a1e5ded"
+  },
+  {
+    "package": [
+      "resource/validation/errors"
+    ],
+    "name": "Validation Errors",
+    "href": "cd5e545696b34ea951019463f8576788"
+  },
+  {
+    "package": [
+      "resource/validation/errors"
+    ],
+    "name": "Validation Errors",
+    "href": "673abd0f77d86b3efed1877be5aecda8"
   },
   {
     "package": [
       "v1"
     ],
-    "name": "Oauth/Request/Token",
-    "href": "9e674589be136e9ca179b7bb02dff084"
-  },
-  {
-    "package": [
-      "v1"
-    ],
-    "name": "Users/Wallets/Cards/Funds/Transfers",
-    "href": "e912f0b77324e8e387a30a8b56bf77f4"
-  },
-  {
-    "package": [
-      "v1"
-    ],
-    "name": "Users/Wallets/Cards/Securities/Tokens",
-    "href": "1cbbc4e664f1bcc07abb7b1c970984ea"
-  },
-  {
-    "package": [
-      "v1"
-    ],
-    "name": "Users/Wallets/Cards",
-    "href": "5788357cd415eeabca34033d9d4c9b10"
+    "name": "Users",
+    "href": "ed53eca9d1a20b9f5fcbd0a7b0c30528"
   },
   {
     "package": [
@@ -45,63 +94,49 @@
     "package": [
       "v1"
     ],
-    "name": "Users",
-    "href": "c218f1637a7375733bc7512380483d6b"
+    "name": "Users/Messages",
+    "href": "382d3828a5f40200f374b58917110926"
   },
   {
     "package": [
-      "v1/errors"
+      "v1"
     ],
-    "name": "400",
-    "href": "ca988181554997d91bffa8025d694b6f"
+    "name": "Users/Wallets/Cards",
+    "href": "7b568ea20e7878f759476bc37971c844"
   },
   {
     "package": [
-      "v1/errors"
+      "v1"
     ],
-    "name": "401",
-    "href": "f6fb8b5ad654401a1c8b151cf5d3a41f"
+    "name": "Users/Wallets/Cards/Securities/Tokens",
+    "href": "1cbbc4e664f1bcc07abb7b1c970984ea"
   },
   {
     "package": [
-      "v1/errors"
+      "v1"
     ],
-    "name": "404",
-    "href": "0e37a4f44e7294a57f94e697e73569ed"
+    "name": "Users/Wallets/Cards/Funds/Transfers",
+    "href": "d1c7b12ef081ad6d7eca9cbaa759ce5f"
   },
   {
     "package": [
-      "v1/errors"
+      "v1"
     ],
-    "name": "405",
-    "href": "faa8416c14e8242bfca0fca91e15b875"
+    "name": "Oauth/Request/Token",
+    "href": "9e674589be136e9ca179b7bb02dff084"
   },
   {
     "package": [
-      "v1/errors"
+      "v1"
     ],
-    "name": "406",
-    "href": "dba167cf0a1d35c24d9f55913ea78c39"
-  },
-  {
-    "package": [
-      "v1/errors"
-    ],
-    "name": "498",
-    "href": "b6955d3542352aa00b042ff2b6e32eff"
-  },
-  {
-    "package": [
-      "v1/errors"
-    ],
-    "name": "500",
-    "href": "dd8c1c399604ac0515fc1e1ce66f0624"
+    "name": "Oauth/Access/Token",
+    "href": "1e15447b8e459d56c7674264272aa050"
   },
   {
     "package": [
       "v1"
     ],
     "name": "v1",
-    "href": "bcc2c672ea325131a8fd3f45e3d692a6"
+    "href": "10daad134cdf22b2fc70735d0199ba13"
   }
 ]
