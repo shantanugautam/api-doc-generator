@@ -37,6 +37,9 @@ apiGeneratorControllers.controller('ApiDetailCtrl', ['$location', '$scope', '$ro
             else if(api.package[0] === "v1/errors") {
                 return 'errors';
             }
+            else if (api.package[0] === "resource/validation/errors") {
+                return 'validations';
+            }
             else if(api.package[0] === "v1") {
                 return 'api';
             }

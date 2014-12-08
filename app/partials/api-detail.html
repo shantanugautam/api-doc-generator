@@ -1,11 +1,12 @@
 <section>
     <section st-section="banner">
-        <h1>{{Apiname}} Documentation</h1>
+        <h1>Optimus Prime</h1>
+        <p>Official MatchMove Wallet Api Documentation</p>
     </section>
     <section st-section="version">
         <div st-section="miniInfo">
             <h3>Optimus Prime</h3>
-            <span class="inline-block-el" vertical-align="middle">API reference /{{api.version}}/ </span>
+            <span class="inline-block-el" vertical-align="middle">API reference </span>
             <input type="search" placeholder="Search" ng-model="searchText">
         </div>
         <ul st-section="sidebar">
@@ -434,6 +435,37 @@
                 </div>
             </div>
             <div ng-switch-when="errors">
+                <div st-section="subSection" data-model="getParams">
+                    <div st-section="apiInfo">
+                        <dl>
+                            <dt>Description</dt>
+                            <dd>{{data.description}}</dd>
+                        </dl>
+                        <table>
+                            <tr><th>Contents</th></tr>
+                            <tr>
+                              <td>
+                                <table>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                    </tr>
+                                    <tr data-ng-repeat="content in data.contents">
+                                        <td>
+                                            {{content.name}}
+                                        </td>
+                                        <td class="descTxt">
+                                            {{content.description}}
+                                        </td>
+                                    </tr>
+                                </table>
+                              </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="validations">
                 <div st-section="subSection" data-model="getParams">
                     <div st-section="apiInfo">
                         <dl>
