@@ -1,0 +1,16 @@
+{
+  "name": "498",
+  "package": [
+    "v1/errors"
+  ],
+  "version": [
+    "1.0.1"
+  ],
+  "description": "Error 498 Expiry Errors",
+  "contents": [
+    {
+      "name": "access_token_expired",
+      "description": "Access token is already expired"
+    }
+  ]
+}

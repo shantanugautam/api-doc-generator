@@ -1,0 +1,124 @@
+{
+  "name": "Validation Errors",
+  "package": [
+    "resource/validation/errors"
+  ],
+  "version": [
+    "1.2.0"
+  ],
+  "description": "User Resource Validation Errors",
+  "contents": [
+    {
+      "name": "Validation:User:Detail:UserId:NotEmpty",
+      "description": "User Unique Identifier is required"
+    },
+    {
+      "name": "Validation:FirstName:NotEmpty",
+      "description": "First name is required"
+    },
+    {
+      "name": "Validation:FirstName:Rule",
+      "description": "First name should be alpha-numeric characters"
+    },
+    {
+      "name": "Validation:FirstName:Lengthmax",
+      "description": "First name exceeds max number of characters"
+    },
+    {
+      "name": "Validation:LastName:NotEmpty",
+      "description": "Last name is required"
+    },
+    {
+      "name": "Validation:LastName:Rule",
+      "description": "Last name should be alpha-numeric characters"
+    },
+    {
+      "name": "Validation:LastName:Lengthmax",
+      "description": "Last name exceeds max number of characters"
+    },
+    {
+      "name": "Validation:Gender:NotEmpty",
+      "description": "Gender is required"
+    },
+    {
+      "name": "Validation:Gender:MaleFemale",
+      "description": "Gender should be male or female"
+    },
+    {
+      "name": "Validation:FullName:NotEmpty",
+      "description": "Full name is required"
+    },
+    {
+      "name": "Validation:FullName:Rule",
+      "description": "Full name should be alpha-numeric characters"
+    },
+    {
+      "name": "Validation:PreferName:NotEmpty",
+      "description": "Preferred Name or Name on Card is required"
+    },
+    {
+      "name": "Validation:PreferName:Rule",
+      "description": "Preferred Name or Name on Card should be alpha-numeric characters"
+    },
+    {
+      "name": "Validation:PreferName:Lengthmax",
+      "description": "Preferred Name or Name on Card exceeds max number of characters"
+    },
+    {
+      "name": "Validation:IdNumber:NotEmpty",
+      "description": "Identification card number is required"
+    },
+    {
+      "name": "Validation:IdNumber:Unique",
+      "description": "Identification card number is already registered"
+    },
+    {
+      "name": "Validation:IdType:NotEmpty",
+      "description": "Identification card type is required"
+    },
+    {
+      "name": "Validation:IdType:Error",
+      "description": "Identification card type is invalid"
+    },
+    {
+      "name": "Validation:MobileCountry:NotEmpty",
+      "description": "Mobile country code is required"
+    },
+    {
+      "name": "Validation:MobileCountry:Numeric",
+      "description": "Mobile country code must be numeric"
+    },
+    {
+      "name": "Validation:MobileNumber:NotValid",
+      "description": "Mobile number is invalid"
+    },
+    {
+      "name": "Validation:MobileNumber:NotEmpty",
+      "description": "Mobile number is required"
+    },
+    {
+      "name": "Validation:MobileNumber:Numeric",
+      "description": "Mobile number must be numeric"
+    },
+    {
+      "name": "Validation:MobileNumber:Unique",
+      "description": "Mobile number is already registered"
+    },
+    {
+      "name": "Validation:Birthday:NotEmpty",
+      "description": "Date of birth is required"
+    },
+    {
+      "name": "Validation:Birthday:Rule",
+      "description": "Date of birth is not a valid date"
+    },
+    {
+      "name": "Validation:Birthday:Limit",
+      "description": "You must be at leat 18 years old"
+    },
+    {
+      "name": "Validation:User:Detail:Title:NotEmpty",
+      "description": "Title or Salutation is required"
+    }
+  ]
+}

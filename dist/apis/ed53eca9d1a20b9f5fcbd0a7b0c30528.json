@@ -1,0 +1,315 @@
+{
+  "name": "Users",
+  "package": [
+    "v1"
+  ],
+  "version": [
+    "1.0.0"
+  ],
+  "description": "Users of the Virtual Card Wallet",
+  "methods": [
+    {
+      "name": "post",
+      "response": {
+        "id": {
+          "name": "id",
+          "type": "string",
+          "description": "Account unique identifier"
+        },
+        "email": {
+          "name": "email",
+          "type": "string",
+          "description": "Email address"
+        },
+        "name": {
+          "name": "name",
+          "type": "array",
+          "description": "Name",
+          ".first": {
+            "name": "first",
+            "type": "string",
+            "description": "First or give name"
+          },
+          ".last": {
+            "name": "last",
+            "type": "string",
+            "description": "Last or family name"
+          }
+        },
+        "mobile": {
+          "name": "mobile",
+          "type": "array",
+          "description": "Mobile information",
+          ".country_code": {
+            "name": "country_code",
+            "type": "int",
+            "description": "Mobile country code"
+          },
+          ".number": {
+            "name": "number",
+            "type": "int",
+            "description": "Mobile number"
+          }
+        },
+        "status": {
+          "name": "status",
+          "type": "array",
+          "description": "Status information",
+          ".is_active": {
+            "name": "is_active",
+            "type": "boolean",
+            "description": "Account status"
+          },
+          ".text": {
+            "name": "text",
+            "type": "string",
+            "description": "Account status in plain text"
+          }
+        },
+        "date": {
+          "name": "date",
+          "type": "array",
+          "description": "Date Information",
+          ".registration": {
+            "name": "registration",
+            "type": "date",
+            "description": "Registration date"
+          }
+        }
+      },
+      "description": "User registration process\n@param   string     oauth_user_name      Email address\n@param   string     oauth_user_password  User password\n@param   string     first_name           First or give name\n@param   string     last_name            Last or family name\n@param   int        mobile_country_code  Mobile country code\n@param   int        mobile               Mobile number"
+    },
+    {
+      "name": "get",
+      "response": {
+        "id": {
+          "name": "id",
+          "type": "string",
+          "description": "Account unique identifier"
+        },
+        "email": {
+          "name": "email",
+          "type": "string",
+          "description": "Email address"
+        },
+        "name": {
+          "name": "name",
+          "type": "array",
+          "description": "Name",
+          ".first": {
+            "name": "first",
+            "type": "string",
+            "description": "First or give name"
+          },
+          ".last": {
+            "name": "last",
+            "type": "string",
+            "description": "Last or family name"
+          }
+        },
+        "mobile": {
+          "name": "mobile",
+          "type": "array",
+          "description": "Mobile information",
+          ".country_code": {
+            "name": "country_code",
+            "type": "int",
+            "description": "Mobile country code"
+          },
+          ".number": {
+            "name": "number",
+            "type": "int",
+            "description": "Mobile number"
+          }
+        },
+        "identification": {
+          "name": "identification",
+          "type": "array",
+          "description": "Identification information",
+          ".type": {
+            "name": "type",
+            "type": "string",
+            "description": "Identification card type"
+          },
+          ".number": {
+            "name": "number",
+            "type": "string",
+            "description": "Identification card number"
+          }
+        },
+        "birthday": {
+          "name": "birthday",
+          "type": "date",
+          "description": "Date of birth"
+        },
+        "gender": {
+          "name": "gender",
+          "type": "string",
+          "description": "Gender"
+        },
+        "links": {
+          "name": "links",
+          "type": "array",
+          "description": "Addtional information",
+          ".rel": {
+            "name": "rel",
+            "type": "string",
+            "description": "Resources relationship"
+          },
+          ".href": {
+            "name": "href",
+            "type": "string",
+            "description": "Resources link"
+          },
+          ".method": {
+            "name": "method",
+            "type": "string",
+            "description": "Method to use to get the resources information"
+          }
+        },
+        "status": {
+          "name": "status",
+          "type": "array",
+          "description": "Status information",
+          ".is_active": {
+            "name": "is_active",
+            "type": "boolean",
+            "description": "Account status"
+          },
+          ".text": {
+            "name": "text",
+            "type": "string",
+            "description": "Account status in plain text"
+          }
+        },
+        "date": {
+          "name": "date",
+          "type": "array",
+          "description": "Date Information",
+          ".registration": {
+            "name": "registration",
+            "type": "date",
+            "description": "Registration date"
+          }
+        }
+      },
+      "description": "Returns the user's information"
+    },
+    {
+      "name": "put",
+      "response": {
+        "id": {
+          "name": "id",
+          "type": "string",
+          "description": "Account unique identifier"
+        },
+        "email": {
+          "name": "email",
+          "type": "string",
+          "description": "Email address"
+        },
+        "name": {
+          "name": "name",
+          "type": "array",
+          "description": "Name",
+          ".first": {
+            "name": "first",
+            "type": "string",
+            "description": "First or give name"
+          },
+          ".last": {
+            "name": "last",
+            "type": "string",
+            "description": "Last or family name"
+          }
+        },
+        "mobile": {
+          "name": "mobile",
+          "type": "array",
+          "description": "Mobile information",
+          ".country_code": {
+            "name": "country_code",
+            "type": "int",
+            "description": "Mobile country code"
+          },
+          ".number": {
+            "name": "number",
+            "type": "int",
+            "description": "Mobile number"
+          }
+        },
+        "identification": {
+          "name": "identification",
+          "type": "array",
+          "description": "Identification information",
+          ".type": {
+            "name": "type",
+            "type": "string",
+            "description": "Identification card type"
+          },
+          ".number": {
+            "name": "number",
+            "type": "string",
+            "description": "Identification card number"
+          }
+        },
+        "birthday": {
+          "name": "birthday",
+          "type": "date",
+          "description": "Date of birth"
+        },
+        "gender": {
+          "name": "gender",
+          "type": "string",
+          "description": "Gender"
+        },
+        "links": {
+          "name": "links",
+          "type": "array",
+          "description": "Addtional information",
+          ".rel": {
+            "name": "rel",
+            "type": "string",
+            "description": "Resources relationship"
+          },
+          ".href": {
+            "name": "href",
+            "type": "string",
+            "description": "Resources link"
+          },
+          ".method": {
+            "name": "method",
+            "type": "string",
+            "description": "Method to use to get the resources information"
+          }
+        },
+        "status": {
+          "name": "status",
+          "type": "array",
+          "description": "Status information",
+          ".is_active": {
+            "name": "is_active",
+            "type": "boolean",
+            "description": "Account status"
+          },
+          ".text": {
+            "name": "text",
+            "type": "string",
+            "description": "Account status in plain text"
+          }
+        },
+        "date": {
+          "name": "date",
+          "type": "array",
+          "description": "Date Information",
+          ".registration": {
+            "name": "registration",
+            "type": "date",
+            "description": "Registration date"
+          }
+        }
+      },
+      "description": "Returns the user's information\n\n@param   string     title                   Preferred Salutation\n@param   string     preferred_name          Preferred Name on card\n@param   string     first_name              First or give name\n@param   string     last_name               Last or family name\n@param   int        mobile_country_code     Mobile country code\n@param   int        mobile                  Mobile number\n@param   string     id_type                 Identification card type\n@param   string     id_number               Identification card number\n@param   string     countryofissue          Identification card's issuer Country\n@param   date       birthday                Date of birth\n@param   string     nationality             Preferred Salutation\n@param   string     gender                  Gender"
+    }
+  ]
+}

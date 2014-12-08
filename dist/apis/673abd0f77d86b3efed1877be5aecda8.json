@@ -1,0 +1,84 @@
+{
+  "name": "Validation Errors",
+  "package": [
+    "resource/validation/errors"
+  ],
+  "version": [
+    "1.2.0"
+  ],
+  "description": "User Address Resource Validation Errors",
+  "contents": [
+    {
+      "name": "Validation:Address:HouseNumber:NotEmpty",
+      "description": "House number is required"
+    },
+    {
+      "name": "Validation:Address:UnitNumber:NotEmpty",
+      "description": "Unit number is required"
+    },
+    {
+      "name": "Validation:Address:Street:NotEmpty",
+      "description": "Street is required"
+    },
+    {
+      "name": "Validation:Address:Ward:NotEmpty",
+      "description": "Ward is required"
+    },
+    {
+      "name": "Validation:Address:District:NotEmpty",
+      "description": "District is required"
+    },
+    {
+      "name": "Validation:Address:Line1:NotEmpty",
+      "description": "Address line 1 is required"
+    },
+    {
+      "name": "Validation:Address:Line1:Lengthmax",
+      "description": "Address line 1 should be less than or equal to 35 characters"
+    },
+    {
+      "name": "Validation:Address:Line2:NotEmpty",
+      "description": "Address line 2 is required"
+    },
+    {
+      "name": "Validation:Address:Line2:NotEmpty",
+      "description": "Address line 2 should be less than or equal to 35 characters"
+    },
+    {
+      "name": "Validation:Address:City:NotEmpty",
+      "description": "City is required"
+    },
+    {
+      "name": "Validation:Address:City:NotEmpty",
+      "description": "City should be less than or equal to 20 characters"
+    },
+    {
+      "name": "Validation:Address:State:NotEmpty",
+      "description": "State is required"
+    },
+    {
+      "name": "Validation:Address:State:NotEmpty",
+      "description": "State should be less than or equal to 20 characters"
+    },
+    {
+      "name": "Validation:Address:Country:NotEmpty",
+      "description": "Country is required"
+    },
+    {
+      "name": "Validation:Address:Country:NotEmpty",
+      "description": "Country should be less than or equal to 20 characters"
+    },
+    {
+      "name": "Validation:Address:Postcode:NotEmpty",
+      "description": "Zip/Postal Code is required"
+    },
+    {
+      "name": "Validation:Address:Postcode:Numeric",
+      "description": "Zip/Postal Code should be numeric value"
+    },
+    {
+      "name": "Validation:Address:Postcode:Lengthmax",
+      "description": "Zip/Postal Code should be less than or equal to 15 characters"
+    }
+  ]
+}
