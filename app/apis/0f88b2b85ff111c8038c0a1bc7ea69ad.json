@@ -1,1 +1,0 @@
-{"name":"401","package":["v1\/errors"],"version":["1.0.1"],"description":"Error 401 Authentication Errors","contents":[{"name":"user_crendentials_invalid","description":"Invalid User credentials"},{"name":"access_token_no_user","description":"Invalid access token"}]}

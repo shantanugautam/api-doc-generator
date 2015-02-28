@@ -1,1 +1,0 @@
-{"name":"Users\/Wallets\/Cards\/Transactions","package":["v1"],"version":["1.0.0"],"description":"Card's Transactions List","methods":[{"name":"get","response":{"transactions":{"name":"transactions","type":"array","description":"Card's transaction list"}},"description":"Returns the list of transactions of a card"}]}

@@ -1,1 +1,0 @@
-{"name":"403","package":["v1\/errors"],"version":["1.0.0"],"description":"Error 403 Resource Access Control Errors","contents":[{"name":"restricted_resource","description":"Not enough permission to access the resource.\nVerify your access scope and restrictions from your account\/integration manager."}]}
