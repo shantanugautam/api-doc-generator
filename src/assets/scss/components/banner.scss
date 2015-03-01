@@ -1,0 +1,37 @@
+[st-section] {
+    @include clearfix;
+}
+
+[st-section~="banner"] {
+    text-align: center;
+    padding: 3em 1em;
+    font-size: 2em;
+
+    background: -webkit-linear-gradient(90deg, #5f2c82 10%, #49a09d 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #5f2c82 10%, #49a09d 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #5f2c82 10%, #49a09d 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #5f2c82 10%, #49a09d 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #5f2c82 10%, #49a09d 90%); /* W3C */
+
+    h1 {
+        font-weight: 300;
+        color: $white;
+        font-size: 1.4em;
+    }
+    & > p {
+        font-size: 0.5em;
+        color: #a8a8a8;
+        padding-top: 1em;
+    }
+}
+
+
+[st-section~="version"] {
+    // padding: 1em;
+    border-bottom: 1px inset $white;
+    @media screen and (min-width: 681px) {
+        width: 25%;
+        float: left;
+    }
+    // font-size: 2em;
+}

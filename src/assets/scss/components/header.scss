@@ -1,0 +1,20 @@
+header {
+    @include clearfix;
+    li {
+    	display:inline-block;
+    }
+}
+
+
+body {
+    & > header {
+        text-transform: uppercase;
+        background: $white;
+        text-align: center;
+        padding: .5em 1em;
+        border-bottom: 1px inset $grey--light;
+        box-shadow:
+    }
+}
+
+

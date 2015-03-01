@@ -1,0 +1,85 @@
+<section>
+    <section st-section="banner">
+        <h1>Optimus Prime</h1>
+        <p>Official MatchMove Wallet Api Documentation</p>
+    </section>
+    <section st-section="version">
+        <div st-section="miniInfo">
+            <h3>Optimus Prime</h3>
+            <span class="inline-block-el" vertical-align="middle">API reference </span>
+            <input type="search" placeholder="Search" ng-model="searchText">
+        </div>
+        <ul st-section="sidebar">
+            <li>
+                <h3>Resource</h3>
+            </li>
+            <li 
+                ng-repeat="api in getResource">
+                <a ng-href="/{{api.href}}">
+                {{api.name}}
+                </a>
+            </li>
+            <li>
+                <h3>Methods</h3>
+            </li>
+            <li 
+                ng-repeat="api in getMethods">
+                <a ng-href="index.html#/apis/{{api.href}}" ng-class="{ active: isActive(api.href)}">
+                {{api.name}}
+                </a>
+            </li>
+            <li>
+                <h3>Validation Errors</h3>
+            </li>
+            <li 
+                ng-repeat="api in getValidationErrors">
+                <a ng-href="index.html#/apis/{{api.href}}" ng-class="{ active: isActive(api.href)}">
+                {{api.name}}
+                </a>
+            </li>
+            <li>
+                <h3>Errors</h3>
+            </li>
+            <li 
+                ng-repeat="api in errors">
+                <a ng-href="index.html#/error/{{api.name}}" data-content="{{api.href}}" ng-class="{ active: isActive(api.href)}">
+                {{api.name}}
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section st-section="documentation">
+        <h2 ng-model="route.selectedRoute">{{api.name}}</h2>
+        <section st-section="content">
+            <div st-section="subSection" data-model="getParams">
+                <div st-section="apiInfo">
+                    <dl>
+                        <dt>Description</dt>
+                        <dd>{{data.description}}</dd>
+                    </dl>
+                    <table>
+                        <tr><th>Contents</th></tr>
+                        <tr>
+                          <td>
+                            <table>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                                <tr data-ng-repeat="content in data.contents">
+                                    <td>
+                                        {{content.name}}
+                                    </td>
+                                    <td class="descTxt">
+                                        {{content.description}}
+                                    </td>
+                                </tr>
+                            </table>
+                          </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>
