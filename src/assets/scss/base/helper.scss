@@ -1,6 +1,14 @@
 .inline-block-el {
     display: inline-block;
 }
+.align-center {
+	text-align:center;
+}
 [vertical-align~="middle"] {
     vertical-align: middle;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
 }

@@ -9,8 +9,7 @@ angular.module('apiDocGenerator')
             api.getErrors().$promise,
             api.getResource().$promise
         ]).then(function() { 
-            $scope.apiname = Object.keys($stateParams).map(function (key) {return $stateParams[key]});
-            console.log($scope.apiname);
+            $scope.resourcename = Object.keys($stateParams).map(function (key) {return $stateParams[key]});
             api.getErrors().then(function(api){
                 $scope.errorcodes = api;
             });
@@ -19,6 +18,14 @@ angular.module('apiDocGenerator')
             });
             api.getResource().then(function(api){
                 $scope.apiresource = api;
+                console.log($scope.apiresource);
+                $http.get($rootScope.endpoint + '/data/' + $scope.apiresource[0].href).
+                    success(function(data, status, headers, config) {
+                        $scope.resourcedata = data;
+                    }).
+                    error(function(data, status, headers, config) {
+
+                    });
             });
             api.getMethods().then(function(api){
                 $scope.methods = api;

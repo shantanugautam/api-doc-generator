@@ -1,7 +1,26 @@
 header {
     @include clearfix;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    text-align:left;
     li {
     	display:inline-block;
+        vertical-align:middle;
+        padding-left:10px;
+        padding-right:10px;
+        &:first-of-type {
+            padding-left:10px;
+        }
+        img {
+            max-height:40px;
+        }
+        a {
+            display:inline-block;
+            color:#333;
+        }
     }
 }
 
@@ -10,7 +29,7 @@ body {
     & > header {
         text-transform: uppercase;
         background: $white;
-        text-align: center;
+        text-align: left;
         padding: .5em 1em;
         border-bottom: 1px inset $grey--light;
         box-shadow:

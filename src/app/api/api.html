@@ -4,10 +4,9 @@
         <p>Official MatchMove Wallet Api Documentation</p>
     </section>
     <section st-section="version">
-        <div st-section="miniInfo">
-            <h3>Optimus Prime</h3>
-            <span class="inline-block-el" vertical-align="middle">API reference </span>
+        <div st-section="miniInfo inputContainer">
             <input type="search" placeholder="Search" ng-model="searchText">
+            <label>API reference </span>
         </div>
         <ul st-section="sidebar">
             <li>
@@ -15,7 +14,7 @@
             </li>
             <li 
                 ng-repeat="api in apiresource">
-                <a ng-href="/{{api.href}}">
+                <a ng-href="index.html#/resource" target="_self">
                 {{api.name}}
                 </a>
             </li>
@@ -24,7 +23,7 @@
             </li>
             <li 
                 ng-repeat="api in methods">
-                <a ng-href="index.html#/api/{{api.name.split('/').join('-')}}" ng-class="{ active: isActive(api.href.slice(0, -5))}">
+                <a ng-href="index.html#/api/{{api.name.split('/').join('-')}}" ng-class="{ active: isActive(api.href.slice(0, -5))}" target="_self">
                 {{api.name}}
                 </a>
             </li>
@@ -33,7 +32,7 @@
             </li>
             <li 
                 ng-repeat="api in validationerrorcodes">
-                <a ng-href="index.html#/apis/{{api.href}}" ng-class="{ active: isActive(api.href)}">
+                <a ng-href="index.html#/apis/{{api.href}}" ng-class="{ active: isActive(api.href)}" target="_self">
                 {{api.name}}
                 </a>
             </li>
@@ -42,497 +41,81 @@
             </li>
             <li 
                 ng-repeat="api in errorcodes">
-                <a ng-href="index.html#/error/{{api.name}}" data-content="{{api.href}}" ng-class="{ active: isActive(api.name)}">
+                <a ng-href="index.html#/error/{{api.name}}" data-content="{{api.href}}" ng-class="{ active: isActive(api.name)}" target="_self">
                 {{api.name}}
                 </a>
             </li>
         </ul>
     </section>
     <section st-section="documentation">
-        <section st-section="content">
-            <div st-section="subSection" >
-                    <div st-section="apiName">
-                        <h2>{{methodsdata.name}}</h2>
-                    </div>
-                    <div st-section="apiInfo">
-                        <dl>
-                            <dt>Description</dt>
-                            <dd>
-                                <md class="contentMarkdown" ng-model="methodsdata.description">
-                                </md>
-                            </dd>
-                        </dl>
-                        <ul >
-                            <li data-ng-repeat="methods in methodslist">
-                                <dl>
-                                    <dt>Method</dt>
-                                    <dd>{{methods.name}}</dd>
-                                </dl>   
-                                <dl>
-                                    <dt>Description</dt>
-                                    <dd>
-                                        <md class="contentMarkdown" ng-model="methods.description">
-                                        </md>
-                                    </dd>
-                                </dl>
-                                <div class="additionalInfo" ng-if="methods.requests">
-                                    <h4>Requests</h4>
-                                    <table>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Type</th>
-                                            <th>Optional</th>
-                                            <th>Length</th>
-                                            <th>Description</th>
-                                        </tr>
-                                        <tr data-ng-repeat="request in methods.requests">
-                                            <td>{{request.name}}</td>
-                                            <td>{{request.type}}</td>
-                                            <td>{{request.optional}}</td>
-                                            <td>{{request.length}}</td>
-                                            <td>
-                                                <md class="contentMarkdown" ng-model="request.description">
-                                                </md>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="additionalInfo" ng-if="methods.response">
-                                <h4>Response</h4>
-                                <table>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Description</th>
-                                    </tr>
-                                   <tr data-ng-repeat="response in methods.response">
-                                        <td>{{response.name}}</td>
-                                        <td>{{response.type}}</td>
-                                        <td>
-                                            <md class="contentMarkdown" ng-model="response.description">
-                                            </md>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </li>
-                        </ul>
-                    </div>
-            </div>
+        <section st-section="title">
+            <h1>API</h1>
+            <h2>{{methodsdata.name}}</h2>
         </section>
-        <section st-section="content" ng-switch="typeofpackage()">
-            <div ng-switch-when="api">
-                <div st-section="subSection" data-ng-repeat="method in getParams">
-                    <div st-section="apiName">
-                        <h2>{{methodsdata.name}}</h2>
+        <section st-section="subtitle">
+            <dl>
+                <dt>Description</dt>
+                <dd>
+                    <md class="markdown-body" ng-model="methodsdata.description">
+                    </md>
+                </dd>
+            </dl>
+        </section>
+        <section st-section="content">
+            <ul >
+                <li data-ng-repeat="methods in methodslist" st-content="method">
+                    <h3>Method : {{methods.name}}</h3>
+                    <dl st-content="methodtitle">
+                        <dt>Description</dt>
+                        <dd>
+                            <md class="markdown-body" ng-model="methods.description">
+                            </md>
+                        </dd>
+                    </dl>
+                    <div class="additionalInfo" ng-if="methods.requests">
+                        <h4>Requests</h4>
+                        <aside st-section="tableholder">
+                            <table st-content="table">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th class="align-center">Optional</th>
+                                    <th>Length</th>
+                                    <th>Description</th>
+                                </tr>
+                                <tr data-ng-repeat="request in methods.requests">
+                                    <td>{{request.name}}</td>
+                                    <td>{{request.type}}</td>
+                                    <td class="align-center">{{request.optional}}</td>
+                                    <td>{{request.length}}</td>
+                                    <td class="description">
+                                        <md class="markdown-body" ng-model="request.description">
+                                        </md>
+                                    </td>
+                                </tr>
+                            </table>
+                        </aside>
                     </div>
-                    <div st-section="apiInfo">
-                        <dl>
-                            <dt>Description</dt>
-                            <dd>{{methodsdata.description}}</dd>
-                        </dl>
-                        <table class="tableResponse" ng-if="method.response">
-                            <tr><th>Response</th></tr>
+                    <div class="additionalInfo" ng-if="methods.response">
+                        <h4>Response</h4>
+                        <table st-content="table">
                             <tr>
-                              <td>
-                                <table>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Description</th>
-                                    </tr>
-                                    <tr data-ng-repeat="response in method.response">
-                                        <td class="name">
-                                            <p>{{response.name}}</p>
-                                        </td>
-                                        <td class="description {{response.type}}Type">
-                                            <p>{{response.type}}</p>
-                                        </td>
-                                        <td class="descTxt">
-                                            <p>{{response.description}}</p>
-                                            <div class="additionalInfo" ng-if="response.type == 'array'">
-                                                <div ng-if="response.name != 'fee'">
-                                                    <h4>Additional Info</h4>
-                                                </div>
-                                                <code>
-                                                    <div ng-if="response.name == 'cards'">
-                                                        <div ng-if="response['.date']">
-                                                            <h5>.date</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.date']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.expiry']">
-                                                            <h5>.expiry</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.expiry']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.links']">
-                                                            <h5>.links</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.links']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.rel']">
-                                                            <h5>.rel</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.rel']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.href']">
-                                                            <h5>.href</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.href']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.method']">
-                                                            <h5>.method</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.method']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.status']">
-                                                            <h5>.status</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.status']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.is_active']">
-                                                            <h5>.is_active</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.is_active']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.text']">
-                                                            <h5>.text</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.text']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div ng-if="response.name == 'date'">
-                                                        <div ng-if="response['.registration']">
-                                                            <h5>.registration</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.registration']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.issued']">
-                                                            <h5>.issued</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.issued']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.created']">
-                                                            <h5>.created</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.created']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.expiry']">
-                                                            <h5>.expiry</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.expiry']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div ng-if="response.name == 'funds'">
-                                                        <div ng-if="response['.available']">
-                                                            <h5>.available</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.available']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.currency']">
-                                                            <h5>.currency</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.currency']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.amount']">
-                                                            <h5>.amount</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.amount']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div ng-if="response.name == 'holder'">
-                                                        <div ng-if="response['.name']">
-                                                            <h5>.name</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.name']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div ng-if="response.name == 'identification'">
-                                                        <div ng-if="response['.type']">
-                                                            <h5>.type</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.type']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.number']">
-                                                            <h5>.number</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.number']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div ng-if="response.name == 'image'">
-                                                        <div ng-if="response['.small']">
-                                                            <h5>.small</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.small']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.medium']">
-                                                            <h5>.medium</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.medium']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.large']">
-                                                            <h5>.large</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.large']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div ng-if="response.name == 'links'">
-                                                        <div ng-if="response['.rel']">
-                                                            <h5>.rel</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.rel']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.href']">
-                                                            <h5>.href</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.href']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.method']">
-                                                            <h5>.method</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.method']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div ng-if="response.name == 'mobile'">
-                                                        <div ng-if="response['.country_code']">
-                                                            <h5>.country_code</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.country_code']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.number']">
-                                                            <h5>.number</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.number']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div ng-if="response.name == 'recipient'">
-                                                        <div ng-if="response['.type']">
-                                                            <h5>.type</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.type']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.id']">
-                                                            <h5>.id</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.id']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div ng-if="response.name == 'status'">
-                                                        <div ng-if="response['.is_active']">
-                                                            <h5>.is_active</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.is_active']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.text']">
-                                                            <h5>.text</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.text']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div ng-if="response.name == 'type'">
-                                                        <div ng-if="response['.name']">
-                                                            <h5>.name</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.name']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.description']">
-                                                            <h5>.description</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.description']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div ng-if="response.name == 'name'">
-                                                        <div ng-if="response['.first']">
-                                                            <h5>.first</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.first']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div ng-if="response['.last']">
-                                                            <h5>.last</h5>
-                                                            <table class="tableInfo">
-                                                                <tr data-ng-repeat="(key, value) in response['.last']">
-                                                                    <td>{{key}}</td>
-                                                                    <td>{{value}}</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </code>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                              </td>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Description</th>
                             </tr>
-                        </table>
-                        <table class="tableResponse" ng-if="method.requests">
-                            <tr><th>Request</th></tr>
-                            <tr>
-                              <td>
-                                <table>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Optional</th>
-                                        <th>Description</th>
-                                    </tr>
-                                    <tr data-ng-repeat="(key, value) in method.requests">
-                                        <td>
-                                            {{value.name}}
-                                        </td>
-                                        <td class="description {{value.type}}Type">
-                                            <p>{{value.type}}</p>
-                                        </td>
-                                        <td>
-                                            {{value.optional}}
-                                        </td>
-                                        <td class="descTxt">
-                                            {{value.description}}
-                                        </td>
-                                    </tr>
-                                </table>
-                              </td>
+                           <tr data-ng-repeat="response in methods.response">
+                                <td>{{response.name}}</td>
+                                <td>{{response.type}}</td>
+                                <td class="description">
+                                    <md class="markdown-body" ng-model="response.description">
+                                    </md>
+                                </td>
                             </tr>
                         </table>
                     </div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </section>
     </section>
 </section>

@@ -3,6 +3,16 @@
 angular.module('apiDocGenerator', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router','yaru22.md'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
+      .state('main', {
+        url: '/main',
+        abstract: true,
+        resolve: {
+          Api: 'api',
+          api: function(api){
+            return api.get().$promise;
+          }
+        }
+      })
       .state('home', {
         url: '/',
         templateUrl: 'app/main/main.html',
@@ -22,11 +32,28 @@ angular.module('apiDocGenerator', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanit
         url: '/error/:name',
         templateUrl: 'app/error/error.html',
         controller: 'ErrorCtrl'
+      })
+      .state('contact', {
+        url: '/contact',
+        templateUrl: 'app/contact/contact.html',
+        controller: 'ContactCtrl'
       });
 
     $urlRouterProvider.otherwise('/');
   })
   .run(function($rootScope){
   	$rootScope.endpoint = '/documentations';
+    $rootScope
+        .$on('$stateChangeStart', 
+            function(event, toState, toParams, fromState, fromParams){ 
+                $("#ui-view").html("");
+                $(".page-loading").removeClass("hidden");
+        });
+
+    $rootScope
+        .$on('$stateChangeSuccess',
+            function(event, toState, toParams, fromState, fromParams){ 
+                $(".page-loading").addClass("hidden");
+        });
   })
 ;

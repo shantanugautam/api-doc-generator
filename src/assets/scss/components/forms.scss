@@ -1,89 +1,4 @@
-input{
-    border-radius:5px;
-    // box-shadow:rgba(47,47,47,.3) 0 0 15px  inset;
-    border:1px solid #09f;
-    outline:none;
-    padding:10px 10px;
-}
-label {
-  display:block;
-  margin-top:2em;
-  font-size: 0.9em;
-  color:#777;
-}
 
-.dropdown {
-  position: relative;
-  display:inline-block;
-  margin-top:0.5em;
-  overflow:hidden;
-  min-width: 200px;
-  max-width:100%;
-}
-
-select {
-  /* Make sure the select is wider than the container so we can clip the arrow */
-  width:110%;
-  max-width:110%;
-  min-width:110%;
-  /* Remove select styling */
-  appearance: none;
-  -webkit-appearance: none;
-  /* Ugly Firefox way of doing it */
-  -moz-appearance: window;
-  text-indent: 0.01px;
-  text-overflow: "";
-  /* Magic font size number to prevent iOS text zoom */
-  font-size:16px;
-  font-weight: bold;
-  background:none;
-  border: none;
-  color: #444;
-  outline: none;
-  /* Padding works surpringly well */
-  padding: .4em 19% .4em .8em;
-  font-family: helvetica, sans-serif;
-  line-height:1.2;
-  margin:.2em;
-}
-
-/* This hides native dropdown button arrow in IE */
-select::-ms-expand {
-  display: none;
-}
-
- /* Custom arrow - could be an image, SVG, icon font, etc. */
-.dropdown:after {
-  background: none;
-  color: #bbb;
-  content: "\25BC";
-  font-size: .7em;
-  padding:0;
-  position: absolute;
-  right: 1em;
-  top: 1.2em;
-  bottom: .3em;
-  z-index: 1;
-  /* This hack makes the select behind the arrow clickable in some browsers */
-  pointer-events:none;
-}
-
-/* Hover style - tricky because we're clipping the overflow */
-.dropdown:hover {
-  border:1px solid #888;
-}
-
-/* Focus style */
-select:focus {
-  outline: none;
-  box-shadow: 0 0 3px 3px rgba(180,222,250, .85);
-}
-
-/* This hides focus around selected option in FF */
-select:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
 
 .button {
   border: 1px solid #bbb;
@@ -97,4 +12,121 @@ select:-moz-focusring {
   background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* IE10+ */
   background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+/* inputs */
+.inputContainer {
+    height: 60px;
+    border-top: 1px solid #e5e5e5;
+    position: relative;
+    overflow: hidden;
+    label {
+        padding: 5px 20px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #777;
+        display: block;
+        position: absolute;
+        top:0;
+    }
+}
+
+.inputContainer.last {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 20px;
+}
+
+.inputContainer.half.last.right {
+    border-left: 1px solid #efefef;
+}
+form {
+    .w-1-2 {
+        padding:0;
+    }
+}
+input[type="text"],
+input[type="tel"],
+input[type="email"], 
+input[type="text"],
+input[type="search"], 
+select {
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+    position: absolute;
+    top: 0;
+    vertical-align: middle;
+    display: inline-block;
+    border: none;
+    border-radius: none;
+    font-size: 13px;
+    color: #777;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    -webkit-transition: background 0.3s;
+            transition: background 0.3s;
+
+    &:focus {
+        outline: none;
+        background: #ecf0f1;
+    }
+}
+
+input[type="date"] {
+    cursor: pointer;
+}
+::-webkit-input-placeholder {
+    color: lightgrey;
+    font-weight: normal;
+    -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+}
+::-moz-placeholder {
+    color: lightgrey;
+    font-weight: normal;
+    transition: all 0.3s;
+}
+::-ms-input-placeholder {
+    color: lightgrey;
+    font-weight: normal;
+    transition: all 0.3s;
+}
+input:-moz-placeholder {
+    color: lightgrey;
+    font-weight: normal;
+    transition: all 0.3s;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: #95a5a6;
+    font-weight: bold;
+}
+
+input:focus::-moz-input-placeholder {
+    color: #95a5a6;
+    font-weight: bold;
+}
+
+
+
+button {
+    font-family: 'Open Sans', sans-serif;
+    background: transparent;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 150px;
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+    -webkit-transition: all 0.3s;
+            transition: all 0.3s;
 }
