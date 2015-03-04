@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apiDocGenerator', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router'])
+angular.module('apiDocGenerator', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router','yaru22.md'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
@@ -9,7 +9,7 @@ angular.module('apiDocGenerator', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanit
         controller: 'MainCtrl'
       })
       .state('api', {
-        url: '/api',
+        url: '/api/:name',
         templateUrl: 'app/api/api.html',
         controller: 'ApiCtrl'
       })

@@ -10,26 +10,125 @@
             <input type="search" placeholder="Search" ng-model="searchText">
         </div>
         <ul st-section="sidebar">
-            <li name="routeChanger" id="routeChanger" ng-model="route.selectedRoute" ng-change="go(route.selectedRoute)"
-                ng-repeat="api in apis | filter:searchText">
+            <li>
+                <h3>Resource</h3>
+            </li>
+            <li 
+                ng-repeat="api in apiresource">
+                <a ng-href="/{{api.href}}">
+                {{api.name}}
+                </a>
+            </li>
+            <li>
+                <h3>Methods</h3>
+            </li>
+            <li 
+                ng-repeat="api in methods">
+                <a ng-href="index.html#/api/{{api.name.split('/').join('-')}}" ng-class="{ active: isActive(api.href.slice(0, -5))}">
+                {{api.name}}
+                </a>
+            </li>
+            <li>
+                <h3>Validation Errors</h3>
+            </li>
+            <li 
+                ng-repeat="api in validationerrorcodes">
                 <a ng-href="index.html#/apis/{{api.href}}" ng-class="{ active: isActive(api.href)}">
+                {{api.name}}
+                </a>
+            </li>
+            <li>
+                <h3>Errors</h3>
+            </li>
+            <li 
+                ng-repeat="api in errorcodes">
+                <a ng-href="index.html#/error/{{api.name}}" data-content="{{api.href}}" ng-class="{ active: isActive(api.name)}">
                 {{api.name}}
                 </a>
             </li>
         </ul>
     </section>
     <section st-section="documentation">
-        <h2 ng-model="route.selectedRoute">{{api.name}}</h2>
-        <section st-section="content" ng-switch="typeofpackage()">
-            <div ng-switch-when="api">
-                <div st-section="subSection" data-ng-repeat="method in getParams">
+        <section st-section="content">
+            <div st-section="subSection" >
                     <div st-section="apiName">
-                        <h3>{{method.name}}</h3>
+                        <h2>{{methodsdata.name}}</h2>
                     </div>
                     <div st-section="apiInfo">
                         <dl>
                             <dt>Description</dt>
-                            <dd>{{method.description}}</dd>
+                            <dd>
+                                <md class="contentMarkdown" ng-model="methodsdata.description">
+                                </md>
+                            </dd>
+                        </dl>
+                        <ul >
+                            <li data-ng-repeat="methods in methodslist">
+                                <dl>
+                                    <dt>Method</dt>
+                                    <dd>{{methods.name}}</dd>
+                                </dl>   
+                                <dl>
+                                    <dt>Description</dt>
+                                    <dd>
+                                        <md class="contentMarkdown" ng-model="methods.description">
+                                        </md>
+                                    </dd>
+                                </dl>
+                                <div class="additionalInfo" ng-if="methods.requests">
+                                    <h4>Requests</h4>
+                                    <table>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Optional</th>
+                                            <th>Length</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr data-ng-repeat="request in methods.requests">
+                                            <td>{{request.name}}</td>
+                                            <td>{{request.type}}</td>
+                                            <td>{{request.optional}}</td>
+                                            <td>{{request.length}}</td>
+                                            <td>
+                                                <md class="contentMarkdown" ng-model="request.description">
+                                                </md>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="additionalInfo" ng-if="methods.response">
+                                <h4>Response</h4>
+                                <table>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                   <tr data-ng-repeat="response in methods.response">
+                                        <td>{{response.name}}</td>
+                                        <td>{{response.type}}</td>
+                                        <td>
+                                            <md class="contentMarkdown" ng-model="response.description">
+                                            </md>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </section>
+        <section st-section="content" ng-switch="typeofpackage()">
+            <div ng-switch-when="api">
+                <div st-section="subSection" data-ng-repeat="method in getParams">
+                    <div st-section="apiName">
+                        <h2>{{methodsdata.name}}</h2>
+                    </div>
+                    <div st-section="apiInfo">
+                        <dl>
+                            <dt>Description</dt>
+                            <dd>{{methodsdata.description}}</dd>
                         </dl>
                         <table class="tableResponse" ng-if="method.response">
                             <tr><th>Response</th></tr>
@@ -431,76 +530,6 @@
                               </td>
                             </tr>
                         </table>
-                    </div>
-                </div>
-            </div>
-            <div ng-switch-when="errors">
-                <div st-section="subSection" data-model="getParams">
-                    <div st-section="apiInfo">
-                        <dl>
-                            <dt>Description</dt>
-                            <dd>{{data.description}}</dd>
-                        </dl>
-                        <table>
-                            <tr><th>Contents</th></tr>
-                            <tr>
-                              <td>
-                                <table>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                    </tr>
-                                    <tr data-ng-repeat="content in data.contents">
-                                        <td>
-                                            {{content.name}}
-                                        </td>
-                                        <td class="descTxt">
-                                            {{content.description}}
-                                        </td>
-                                    </tr>
-                                </table>
-                              </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div ng-switch-when="validations">
-                <div st-section="subSection" data-model="getParams">
-                    <div st-section="apiInfo">
-                        <dl>
-                            <dt>Description</dt>
-                            <dd>{{data.description}}</dd>
-                        </dl>
-                        <table>
-                            <tr><th>Contents</th></tr>
-                            <tr>
-                              <td>
-                                <table>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                    </tr>
-                                    <tr data-ng-repeat="content in data.contents">
-                                        <td>
-                                            {{content.name}}
-                                        </td>
-                                        <td class="descTxt">
-                                            {{content.description}}
-                                        </td>
-                                    </tr>
-                                </table>
-                              </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div ng-switch-when="resource">
-                <div st-section="subSection" data-model="getParams">
-                    <div st-section="apiInfo">
-                        <md class="contentMarkdown" ng-model="data.description">
-                        </md>
                     </div>
                 </div>
             </div>

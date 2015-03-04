@@ -23,8 +23,8 @@
                 <h3>Methods</h3>
             </li>
             <li 
-                ng-repeat="api in getMethods">
-                <a ng-href="index.html#/apis/{{api.href}}" ng-class="{ active: isActive(api.href)}">
+                ng-repeat="api in methods">
+                <a ng-href="index.html#/api/{{api.name.split('/').join('-')}}" ng-class="{ active: isActive(api.href.slice(0, -5))}">
                 {{api.name}}
                 </a>
             </li>
@@ -32,8 +32,8 @@
                 <h3>Validation Errors</h3>
             </li>
             <li 
-                ng-repeat="api in getValidationErrors">
-                <a ng-href="index.html#/apis/{{api.href}}" ng-class="{ active: isActive(api.href)}">
+                ng-repeat="api in validationerrorcodes">
+                <a ng-href="index.html#/validationerrors/{{api.href}}" ng-class="{ active: isActive(api.href)}">
                 {{api.name}}
                 </a>
             </li>
@@ -41,21 +41,21 @@
                 <h3>Errors</h3>
             </li>
             <li 
-                ng-repeat="api in errors">
-                <a ng-href="index.html#/error/{{api.name}}" data-content="{{api.href}}" ng-class="{ active: isActive(api.href)}">
+                ng-repeat="api in errorcodes">
+                <a ng-href="index.html#/error/{{api.name}}" data-content="{{api.href}}" ng-class="{ active: isActive(api.name)}">
                 {{api.name}}
                 </a>
             </li>
         </ul>
     </section>
     <section st-section="documentation">
-        <h2 ng-model="route.selectedRoute">{{api.name}}</h2>
+        <h2 ng-model="route.selectedRoute">{{errordata.name}}</h2>
         <section st-section="content">
             <div st-section="subSection" data-model="getParams">
                 <div st-section="apiInfo">
                     <dl>
                         <dt>Description</dt>
-                        <dd>{{data.description}}</dd>
+                        <dd>{{errordata.description}}</dd>
                     </dl>
                     <table>
                         <tr><th>Contents</th></tr>
@@ -66,12 +66,13 @@
                                     <th>Name</th>
                                     <th>Description</th>
                                 </tr>
-                                <tr data-ng-repeat="content in data.contents">
+                                <tr data-ng-repeat="content in errordata.contents" id="{{content.name}}">
                                     <td>
                                         {{content.name}}
                                     </td>
                                     <td class="descTxt">
-                                        {{content.description}}
+                                        <md class="contentMarkdown" ng-model="content.description">
+                                        </md>
                                     </td>
                                 </tr>
                             </table>

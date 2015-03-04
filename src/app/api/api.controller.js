@@ -1,58 +1,41 @@
 'use strict';
 
 angular.module('apiDocGenerator')
-  .controller('ApiCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      {
-        'title': 'AngularJS',
-        'url': 'https://angularjs.org/',
-        'description': 'HTML enhanced for web apps!',
-        'logo': 'angular.png'
-      },
-      {
-        'title': 'BrowserSync',
-        'url': 'http://browsersync.io/',
-        'description': 'Time-saving synchronised browser testing.',
-        'logo': 'browsersync.png'
-      },
-      {
-        'title': 'GulpJS',
-        'url': 'http://gulpjs.com/',
-        'description': 'The streaming build system.',
-        'logo': 'gulp.png'
-      },
-      {
-        'title': 'Jasmine',
-        'url': 'http://jasmine.github.io/',
-        'description': 'Behavior-Driven JavaScript.',
-        'logo': 'jasmine.png'
-      },
-      {
-        'title': 'Karma',
-        'url': 'http://karma-runner.github.io/',
-        'description': 'Spectacular Test Runner for JavaScript.',
-        'logo': 'karma.png'
-      },
-      {
-        'title': 'Protractor',
-        'url': 'https://github.com/angular/protractor',
-        'description': 'End to end test framework for AngularJS applications built on top of WebDriverJS.',
-        'logo': 'protractor.png'
-      },
-      {
-        'title': 'jQuery',
-        'url': 'http://jquery.com/',
-        'description': 'jQuery is a fast, small, and feature-rich JavaScript library.',
-        'logo': 'jquery.jpg'
-      },
-      {
-        'title': 'Sass (Node)',
-        'url': 'https://github.com/sass/node-sass',
-        'description': 'Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass.',
-        'logo': 'node-sass.png'
-      }
-    ];
-    angular.forEach($scope.awesomeThings, function(awesomeThing) {
-      awesomeThing.rank = Math.random();
-    });
+  .controller('ApiCtrl', function ($rootScope, $scope, $http, $q, $stateParams, api) {
+        var dataurl;
+        $q.all([
+            api.getMethods().$promise,
+            api.getValidationErrors().$promise,
+            api.getErrors().$promise,
+            api.getResource().$promise
+        ]).then(function() { 
+            $scope.apiname = Object.keys($stateParams).map(function (key) {return $stateParams[key]});
+            console.log($scope.apiname);
+            api.getErrors().then(function(api){
+                $scope.errorcodes = api;
+            });
+            api.getValidationErrors().then(function(api){
+                $scope.validationerrorcodes = api;
+            });
+            api.getResource().then(function(api){
+                $scope.apiresource = api;
+            });
+            api.getMethods().then(function(api){
+                $scope.methods = api;
+                for (var i = 0;i < $scope.methods.length; i++) {
+                    if (($scope.methods[i].name.split('/').join('-') === $scope.apiname[0])) {
+                        var dataurlapi = $rootScope.endpoint + '/data/' + $scope.methods[i].href;
+                        console.log(dataurlapi);                        
+                    } 
+                }
+                $http.get(dataurlapi).
+                    success(function(data, status, headers, config) {
+                        $scope.methodsdata = data;
+                        $scope.methodslist = $scope.methodsdata.methods;
+                    }).
+                    error(function(data, status, headers, config) {
+
+                    });
+            });
+        });
   });
