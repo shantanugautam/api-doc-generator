@@ -3,16 +3,6 @@
 angular.module('apiDocGenerator', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router','yaru22.md'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('main', {
-        url: '/main',
-        abstract: true,
-        resolve: {
-          Api: 'api',
-          api: function(api){
-            return api.get().$promise;
-          }
-        }
-      })
       .state('home', {
         url: '/',
         templateUrl: 'app/main/main.html',

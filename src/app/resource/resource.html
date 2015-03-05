@@ -4,34 +4,46 @@
         <p>Official MatchMove Wallet Api Documentation</p>
     </section>
     <section st-section="version">
-        <div st-section="miniInfo inputContainer">
-            <input placeholder="Search" ng-model="searchText">
+        <div st-section="miniInfo" class="inputContainer">
+            <input type="search" placeholder="Search" ng-model="searchText">
             <label>API reference </span>
         </div>
         <ul st-section="sidebar">
             <li>
                 <h3>Resource</h3>
             </li>
-            <li ng-repeat="api in apiresource">
-                <a ng-href="index.html#/resource">{{api.name}}</a>
+            <li 
+                ng-repeat="api in apiresource | filter:searchText">
+                <a ng-href="index.html#/resource" target="_self" my-refresh>
+                {{api.name}}
+                </a>
             </li>
             <li>
                 <h3>Methods</h3>
             </li>
-            <li ng-repeat="api in methods">
-                <a ng-href="index.html#/api/{{api.name.split('/').join('-')}}" ng-class="{ active: isActive(api.href.slice(0, -5))}">{{api.name}}</a>
+            <li 
+                ng-repeat="api in methods | filter:searchText">
+                <a ng-href="index.html#/api/{{api.name.split('/').join('-')}}" ng-class="{ active: isActive(api.href.slice(0, -5))}" target="_self" my-refresh>
+                {{api.name}}
+                </a>
             </li>
             <li>
                 <h3>Validation Errors</h3>
             </li>
-            <li ng-repeat="api in validationerrorcodes">
-                <a ng-href="index.html#/apis/{{api.href}}" ng-class="{ active: isActive(api.href)}">{{api.name}}</a>
+            <li 
+                ng-repeat="api in validationerrorcodes | filter:searchText">
+                <a ng-href="index.html#/apis/{{api.href}}" ng-class="{ active: isActive(api.href)}" target="_self" my-refresh>
+                {{api.name}}
+                </a>
             </li>
             <li>
                 <h3>Errors</h3>
             </li>
-            <li ng-repeat="api in errorcodes">
-                <a ng-href="index.html#/error/{{api.name}}" data-content="{{api.href}}" ng-class="{ active: isActive(api.name)}">{{api.name}}</a>
+            <li 
+                ng-repeat="api in errorcodes | filter:searchText">
+                <a ng-href="index.html#/error/{{api.name}}" data-content="{{api.href}}" ng-class="{ active: isActive(api.name)}" target="_self" my-refresh>
+                {{api.name}}
+                </a>
             </li>
         </ul>
     </section>
