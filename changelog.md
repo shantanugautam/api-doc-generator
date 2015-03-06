@@ -4,3 +4,4 @@
 - Alpha Release
 - Dynamic Routing implemented
 - Static Page implemented
+- Build task fixed
