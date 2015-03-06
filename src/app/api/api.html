@@ -12,8 +12,7 @@
             <li>
                 <h3>Resource</h3>
             </li>
-            <li 
-                ng-repeat="api in apiresource | filter:searchText">
+            <li ng-repeat="api in apiresource | filter:searchText">
                 <a ng-href="index.html#/resource" target="_self" my-refresh>
                 {{api.name}}
                 </a>
@@ -21,8 +20,7 @@
             <li>
                 <h3>Methods</h3>
             </li>
-            <li 
-                ng-repeat="api in methods | filter:searchText">
+            <li ng-repeat="api in methods | filter:searchText">
                 <a ng-href="index.html#/api/{{api.name.split('/').join('-')}}" ng-class="{ active: isActive(api.href.slice(0, -5))}" target="_self" my-refresh>
                 {{api.name}}
                 </a>
@@ -30,8 +28,7 @@
             <li>
                 <h3>Validation Errors</h3>
             </li>
-            <li 
-                ng-repeat="api in validationerrorcodes | filter:searchText">
+            <li ng-repeat="api in validationerrorcodes | filter:searchText">
                 <a ng-href="index.html#/apis/{{api.href}}" ng-class="{ active: isActive(api.href)}" target="_self" my-refresh>
                 {{api.name}}
                 </a>
@@ -39,8 +36,7 @@
             <li>
                 <h3>Errors</h3>
             </li>
-            <li 
-                ng-repeat="api in errorcodes | filter:searchText">
+            <li ng-repeat="api in errorcodes | filter:searchText">
                 <a ng-href="index.html#/error/{{api.name}}" data-content="{{api.href}}" ng-class="{ active: isActive(api.name)}" target="_self" my-refresh>
                 {{api.name}}
                 </a>
@@ -62,7 +58,7 @@
             </dl>
         </section>
         <section st-section="content">
-            <ul >
+            <ul>
                 <li data-ng-repeat="methods in methodslist" st-content="method">
                     <h3>Method : {{methods.name}}</h3>
                     <dl st-content="methodtitle">
@@ -104,7 +100,7 @@
                                 <th>Type</th>
                                 <th>Description</th>
                             </tr>
-                           <tr data-ng-repeat="response in methods.response">
+                            <tr data-ng-repeat="response in methods.response">
                                 <td>{{response.name}}</td>
                                 <td>{{response.type}}</td>
                                 <td class="description">
